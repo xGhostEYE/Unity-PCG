@@ -31,6 +31,7 @@ public class FollowThePath : MonoBehaviour
 
         // Move Enemy
         Move();
+        
     }
 
     // Method that actually make Enemy walk
@@ -54,12 +55,14 @@ public class FollowThePath : MonoBehaviour
             {
                 waypointIndex += 1;
             }
+            
         }
         if(waypointIndex == waypoints.Length-1)
         {
             waypointIndex = 0;
 
         }
+         
 
     }
 }
