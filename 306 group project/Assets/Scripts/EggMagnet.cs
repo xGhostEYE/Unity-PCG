@@ -8,7 +8,7 @@ public class EggMagnet : MonoBehaviour
     void OnTriggerStay(Collider other){
         // check for collision with a egg, then tell egg to move to player
         if (other.gameObject.TryGetComponent<Egg>(out Egg egg)) {
-            coin.ShowPlayerPos(transform.parent.position);
+            egg.ShowPlayerPos(transform.parent.position);
         }
     }
 
