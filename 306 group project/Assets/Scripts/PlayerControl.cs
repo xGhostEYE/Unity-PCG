@@ -8,7 +8,7 @@ public class PlayerControl : MonoBehaviour
 
     private Rigidbody rg;
 
-    public int jumpInt = 2;
+    private int jumpInt = 2;
 
     void Start()
     {
@@ -54,9 +54,12 @@ public class PlayerControl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+            Debug.Log("Box!");
+
         if (collision.gameObject.tag=="Ground")
         {
             jumpInt = 2;
+            Debug.Log("Ground!");
         }
     }
 
