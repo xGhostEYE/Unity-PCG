@@ -22,18 +22,18 @@ public class AcidSpawner : MonoBehaviour
     void Update()
     {
         SpawnAcid();
-        /* x = x + 10.0f;
-        y = y + 10.0f;
-        z = y + 10.0f;
+        x = x + 4.0f;
+        y = y + 4.0f;
+        z = y + 4.0f;
         pos = new Vector3(x, y, z);
-        transform.position = pos;*/
+        //transform.position = pos;
     }
 
 
     private void SpawnAcid() {
 
         if (Time.time > spawnTimer) {
-            GameObject acid = Instantiate(acidPrefab, transform.position, transform.rotation);
+            GameObject acid = Instantiate(acidPrefab, pos, transform.rotation);
             spawnTimer = Time.time + spawnRate;
         }
     }
