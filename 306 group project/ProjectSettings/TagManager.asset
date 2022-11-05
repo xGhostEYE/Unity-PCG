@@ -8,6 +8,8 @@ TagManager:
   - Laser
   - Ground
   - Fog
+  - EnemyBullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

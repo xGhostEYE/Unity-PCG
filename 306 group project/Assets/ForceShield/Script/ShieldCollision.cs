@@ -7,6 +7,7 @@ public class ShieldCollision : MonoBehaviour
 
     public float hitTime = 0f;
     Material mat;
+    Vector3 origScale = new Vector3();
 
     void Start()
     {
@@ -14,27 +15,25 @@ public class ShieldCollision : MonoBehaviour
         {
             mat = GetComponent<Renderer>().sharedMaterial;
         }
-
+        origScale = transform.localScale;
     }
 
     void Update()
     {
-
+        Expand();
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void Expand()
     {
-        if (collision.gameObject.tag=="Enemy")
+        if (transform.localScale.x < origScale.x * 3)
         {
-            //敌人收到伤害，伤害为PlayerInfo玩家当前伤害值
-
+            transform.localScale += origScale / 100;
         }
-
-        if (collision.gameObject.tag == "EnemyBullet")
+        else
         {
-            //如果护盾碰到的是敌人扔出的道具，直接销毁道具。对玩家无效
-            Destroy(collision.gameObject);
+            transform.localScale = origScale;
         }
     }
+
 }
 

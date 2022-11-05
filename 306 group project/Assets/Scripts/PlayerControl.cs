@@ -59,7 +59,6 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.tag=="Ground")
         {
             jumpInt = 2;
-            Debug.Log("Ground!");
         }
     }
 
