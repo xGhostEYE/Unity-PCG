@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody rg;
 
     private int jumpInt = 2;
+    public GameObject deathEffect;
 
     void Start()
     {
@@ -54,7 +55,6 @@ public class PlayerControl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-            Debug.Log("Box!");
 
         if (collision.gameObject.tag=="Ground")
         {
@@ -63,4 +63,14 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    public void TakeDamage (int d)
+    {
+    }
+
+    public void Kill ()
+    {
+        Instantiate(deathEffect, transform.position, transform.rotation);
+        Destroy(this.gameObject);
+        GameManager.instance.gameOver();
+    }
 }

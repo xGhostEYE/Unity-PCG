@@ -5,7 +5,7 @@ using UnityEngine;
 public class Egg : MonoBehaviour
 {
     Rigidbody rb;
-    bool flyToPlayer;
+    bool flyToPlayer = false;
     Vector3 playerPos;
     float moveSpeed = 10.0f;
 
@@ -17,12 +17,13 @@ public class Egg : MonoBehaviour
     private void FixedUpdate() {
 
         // if the egg is within players egg magnet, move to player
+        
         if (flyToPlayer) {
             Vector3 playerDirection = (playerPos - transform.position).normalized;
             rb.velocity = new Vector2(playerDirection.x, playerDirection.y) * moveSpeed;
             flyToPlayer = false;
         } else {
-            rb.velocity = Vector2.zero;
+            //rb.velocity = Vector2.zero;
         }
     }
 
@@ -31,9 +32,13 @@ public class Egg : MonoBehaviour
         flyToPlayer = true;
     }
 
-    void OnTriggerEnter(Collider other) {
-        if (other.transform.tag == "Player") {
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collided!");
+        if (collision.gameObject.tag == "Player") {
             // GameManager.instance.AddPoints(1);
+            Debug.Log("Player Detected!");
+            PlayerInfo.Instance.jumpSpeed *= 1.1f;
             Destroy(this.gameObject);
         }
     }
