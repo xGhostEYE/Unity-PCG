@@ -34,10 +34,8 @@ public class Egg : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided!");
         if (collision.gameObject.tag == "Player") {
             // GameManager.instance.AddPoints(1);
-            Debug.Log("Player Detected!");
             PlayerInfo.Instance.jumpSpeed *= 1.1f;
             Destroy(this.gameObject);
         }
