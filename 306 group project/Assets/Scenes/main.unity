@@ -3626,7 +3626,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Increased Shield Range by 10%\n(\u589E\u52A0\u62A4\u76FE10%\u8303\u56F4)"
+  m_Text: 'Increased Shield Range by 10%
+
+'
 --- !u!222 &693990651
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5462,7 +5464,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'SkillNum: 20'
+  m_Text: SkillPoints 20
 --- !u!222 &1123164183
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6022,7 +6024,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Increased HP by 10%\n(\u589E\u52A010%\u751F\u547D\u503C)"
+  m_Text: 'Increased HP by 10%
+
+'
 --- !u!222 &1220163291
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7394,7 +7398,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "10% Chance To Revive the Player(Only level once)\n(\u5F53\u73A9\u5BB6\u6B7B\u4EA1\uFF0C\u670910%\u7684\u51E0\u7387\u73A9\u5BB6\u590D\u6D3B\uFF0C\u53EA\u80FD\u70B9\u4E00\u6B21)"
+  m_Text: '10% Chance To Revive the Player(Only level once)
+
+'
 --- !u!222 &1456913004
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8330,7 +8336,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "More Speed+10%\n(\u79FB\u52A8\u901F\u5EA6\u589E\u52A010%)"
+  m_Text: 'More Speed+10%
+
+'
 --- !u!222 &1733246784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10072,7 +10080,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Jump Hight+10%\n(\u8DF3\u8DC3\u9AD8\u5EA6\u589E\u52A010%)"
+  m_Text: 'Jump Hight+10%
+
+'
 --- !u!222 &1976653250
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10152,7 +10162,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Shield Power deal 10% more damage\n(\u62A4\u76FE\u589E\u52A010%\u4F24\u5BB3)"
+  m_Text: 'Shield Power deal 10% more damage
+
+'
 --- !u!222 &2034758183
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11225,7 +11237,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Increased Shield Freaquency by 10%\n(\u589E\u52A0\u62A4\u76FE10%\u89E6\u53D1\u9891\u7387)"
+  m_Text: 'Increased Shield Freaquency by 10%
+
+'
 --- !u!222 &2077180337
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11389,7 +11403,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Shield has 20% chance to deal double damage(only level once)\n(\u62A4\u76FE\u670920%\u7684\u51E0\u7387\u89E6\u53D1\u53CC\u500D\u4F24\u5BB3)"
+  m_Text: 'Shield has 20% chance to deal double damage(only level once)
+
+'
 --- !u!222 &2089662024
 CanvasRenderer:
   m_ObjectHideFlags: 0
