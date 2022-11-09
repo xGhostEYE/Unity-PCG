@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ¼¼ÄÜÊ÷Ãæ°å
+/// SkillTree
 /// </summary>
 public class SkillTreeBtn : MonoBehaviour
 {
