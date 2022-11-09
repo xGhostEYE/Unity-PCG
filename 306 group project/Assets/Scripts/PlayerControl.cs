@@ -68,8 +68,7 @@ public class PlayerControl : MonoBehaviour
 
     public void Kill ()
     {
-        GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
-        Destroy(effect, 1.0f);
+        Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(this.gameObject);
         GameManager.instance.gameOver();
     }

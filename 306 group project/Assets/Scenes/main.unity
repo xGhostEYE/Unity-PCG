@@ -616,7 +616,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8146077706262669366, guid: 24b68473de9eb0443a51a304a6bbb24d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8146077706262669366, guid: 24b68473de9eb0443a51a304a6bbb24d, type: 3}
       propertyPath: m_LocalScale.x
@@ -777,7 +777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4346680474834248446, guid: da1fb1f935a7ccf4a951f98540d0d513, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4346680474834248446, guid: da1fb1f935a7ccf4a951f98540d0d513, type: 3}
       propertyPath: m_LocalPosition.x
@@ -952,7 +952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 453250, guid: 0ad8cfb79fe417047915f28126e52e53, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 453250, guid: 0ad8cfb79fe417047915f28126e52e53, type: 3}
       propertyPath: m_LocalScale.x
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 248667475}
   - component: {fileID: 248667478}
   m_Layer: 5
-  m_Name: skill04_MorePower10
+  m_Name: skill04_ShieldDamage10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1195,11 +1195,11 @@ RectTransform:
   m_Father: {fileID: 1913012569}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 82, y: 320}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -114}
   m_SizeDelta: {x: 341.5698, y: 65.6828}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &252817174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1222,18 +1222,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 39
+    m_FontSize: 53
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 47
-    m_Alignment: 3
+    m_MaxSize: 53
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ShieldPower
+  m_Text: Skill Tree
 --- !u!222 &252817175
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1807,7 +1807,7 @@ GameObject:
   - component: {fileID: 372583800}
   - component: {fileID: 372583803}
   m_Layer: 5
-  m_Name: skill02_MoreSpeed20
+  m_Name: skill02_JumpHight10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2605,7 +2605,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &554704505
 MonoBehaviour:
@@ -2891,7 +2891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &591867183
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3626,7 +3626,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More Speed+30%
+  m_Text: "Increased Shield Range by 10%\n(\u589E\u52A0\u62A4\u76FE10%\u8303\u56F4)"
 --- !u!222 &693990651
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3653,6 +3653,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+--- !u!95 &707006042 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8604640964545751279, guid: 6a2291f253a0d9e41ab0a0386ca75bc9, type: 3}
+  m_PrefabInstance: {fileID: 8518645242069275346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &716927364
 GameObject:
   m_ObjectHideFlags: 0
@@ -4165,7 +4170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7992752707399359803, guid: e539a7d267471804aae14f50cd0251e9, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7992752707399359803, guid: e539a7d267471804aae14f50cd0251e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4640,7 +4645,7 @@ GameObject:
   - component: {fileID: 998226697}
   - component: {fileID: 998226700}
   m_Layer: 5
-  m_Name: skill05_MorePower20
+  m_Name: skill05_ShieldFeaquency10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4917,7 +4922,7 @@ GameObject:
   - component: {fileID: 1084342947}
   - component: {fileID: 1084342950}
   m_Layer: 5
-  m_Name: skill07_JumpHp10
+  m_Name: skill07_ShieldDoubleDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4942,8 +4947,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 632, y: 174}
-  m_SizeDelta: {x: 318.307, y: 185.2762}
+  m_AnchoredPosition: {x: 646.04083, y: 174}
+  m_SizeDelta: {x: 527.841, y: 185.276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084342947
 MonoBehaviour:
@@ -5051,7 +5056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e8873f76c801e42bdabb7bbdc06f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillUpNeed: 3
+  skillUpNeed: 20
 --- !u!1 &1101574810
 GameObject:
   m_ObjectHideFlags: 0
@@ -5150,7 +5155,7 @@ GameObject:
   - component: {fileID: 1110878865}
   - component: {fileID: 1110878868}
   m_Layer: 5
-  m_Name: skill06_MorePower30
+  m_Name: skill06_ShieldRange10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5361,7 +5366,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Need 3 SkillPoint
+  m_Text: Need 20 SkillPoint
 --- !u!222 &1119283146
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5402,7 +5407,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1913012569}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -5643,7 +5648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 421776, guid: d39c86f458bba664e9ef86d745214f96, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 421776, guid: d39c86f458bba664e9ef86d745214f96, type: 3}
       propertyPath: m_LocalScale.x
@@ -6017,7 +6022,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More Speed+30%
+  m_Text: "Increased HP by 10%\n(\u589E\u52A010%\u751F\u547D\u503C)"
 --- !u!222 &1220163291
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6172,7 +6177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1250790574
 Transform:
   m_ObjectHideFlags: 0
@@ -6316,7 +6321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 454594, guid: f6b45714fa23d154f911e02282932015, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 454594, guid: f6b45714fa23d154f911e02282932015, type: 3}
       propertyPath: m_LocalScale.x
@@ -6474,7 +6479,7 @@ GameObject:
   - component: {fileID: 1333741315}
   - component: {fileID: 1333741318}
   m_Layer: 5
-  m_Name: skill08_JumpHp20
+  m_Name: skill08_Revive10%
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6499,8 +6504,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 632, y: -93}
-  m_SizeDelta: {x: 318.307, y: 185.2762}
+  m_AnchoredPosition: {x: 646.04083, y: -357}
+  m_SizeDelta: {x: 527.841, y: 185.276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1333741315
 MonoBehaviour:
@@ -6608,7 +6613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e8873f76c801e42bdabb7bbdc06f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillUpNeed: 5
+  skillUpNeed: 50
 --- !u!1 &1361377366
 GameObject:
   m_ObjectHideFlags: 0
@@ -6831,7 +6836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 453250, guid: 92e60661891e77544848658604631b7c, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 453250, guid: 92e60661891e77544848658604631b7c, type: 3}
       propertyPath: m_LocalScale.x
@@ -7389,7 +7394,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More Speed+20%
+  m_Text: "10% Chance To Revive the Player(Only level once)\n(\u5F53\u73A9\u5BB6\u6B7B\u4EA1\uFF0C\u670910%\u7684\u51E0\u7387\u73A9\u5BB6\u590D\u6D3B\uFF0C\u53EA\u80FD\u70B9\u4E00\u6B21)"
 --- !u!222 &1456913004
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8325,7 +8330,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More Speed+10%
+  m_Text: "More Speed+10%\n(\u79FB\u52A8\u901F\u5EA6\u589E\u52A010%)"
 --- !u!222 &1733246784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8400,7 +8405,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1740270396
 GameObject:
@@ -8703,10 +8708,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -8749,7 +8754,7 @@ RectTransform:
   m_Children:
   - {fileID: 1913012569}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9111,86 +9116,6 @@ Transform:
   m_Father: {fileID: 323984514}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1784820121
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1784820122}
-  - component: {fileID: 1784820124}
-  - component: {fileID: 1784820123}
-  m_Layer: 5
-  m_Name: Text (8)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1784820122
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784820121}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2085096207}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8, y: -135}
-  m_SizeDelta: {x: -10, y: -104.1306}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1784820123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784820121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Need 6 SkillPoint
---- !u!222 &1784820124
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784820121}
-  m_CullTransparentMesh: 1
 --- !u!1 &1787030100
 GameObject:
   m_ObjectHideFlags: 0
@@ -9205,7 +9130,7 @@ GameObject:
   - component: {fileID: 1787030102}
   - component: {fileID: 1787030105}
   m_Layer: 5
-  m_Name: skill03_MoreSpeed30
+  m_Name: skill03_IncreasedHp10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9655,7 +9580,7 @@ Transform:
   - {fileID: 513755340}
   - {fileID: 1187329957}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833240869
 GameObject:
@@ -9675,7 +9600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1833240870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9878,15 +9803,14 @@ RectTransform:
   - {fileID: 591867183}
   - {fileID: 1084342946}
   - {fileID: 1333741314}
-  - {fileID: 2085096207}
   - {fileID: 1123164180}
   m_Father: {fileID: 1755855305}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0010986328, y: 0.00033569336}
-  m_SizeDelta: {x: 1471.6, y: 623.33}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1913012570
 MonoBehaviour:
@@ -9958,10 +9882,15 @@ MonoBehaviour:
   playerName: Riley
   hp: 100
   moveSpeed: 5
-  jumpSpeed: 350
+  jumpSpeed: 550
   doubleJumpSpeed: 250
-  skillNum: 0
+  skillNum: 90
   damage: 10
+  shieldSpeed: 1
+  shieldRange: 0
+  doubleDamage: 0.15
+  revivePlayer: 0
+  shieldAnimator: {fileID: 707006042}
   skillNumText: {fileID: 1123164182}
 --- !u!4 &1918702392
 Transform:
@@ -9976,7 +9905,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1960002146
 GameObject:
@@ -10070,7 +9999,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1976653247
 GameObject:
@@ -10143,7 +10072,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More Speed+20%
+  m_Text: "Jump Hight+10%\n(\u8DF3\u8DC3\u9AD8\u5EA6\u589E\u52A010%)"
 --- !u!222 &1976653250
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10152,51 +10081,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976653247}
   m_CullTransparentMesh: 1
---- !u!1 &2015621138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2015621139}
-  - component: {fileID: 2015621140}
-  m_Layer: 0
-  m_Name: Acid Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2015621139
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015621138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78, y: 1005, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2015621140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015621138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5c61adfe332a3d4794f23ef238a0154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acidPrefab: {fileID: 5562072877954156973, guid: 040fa546bee57f248bbc6692e4f0a7fb, type: 3}
 --- !u!1 &2034758180
 GameObject:
   m_ObjectHideFlags: 0
@@ -10268,7 +10152,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More Speed+10%
+  m_Text: "Shield Power deal 10% more damage\n(\u62A4\u76FE\u589E\u52A010%\u4F24\u5BB3)"
 --- !u!222 &2034758183
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10432,7 +10316,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Need 5 SkillPoint
+  m_Text: Need 50 SkillPoint
 --- !u!222 &2044224314
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10440,86 +10324,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044224311}
-  m_CullTransparentMesh: 1
---- !u!1 &2047420690
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2047420691}
-  - component: {fileID: 2047420693}
-  - component: {fileID: 2047420692}
-  m_Layer: 5
-  m_Name: desText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2047420691
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047420690}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2085096207}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -10, y: -10}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2047420692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047420690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: More Speed+30%
---- !u!222 &2047420693
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047420690}
   m_CullTransparentMesh: 1
 --- !u!1 &2057453739
 GameObject:
@@ -11421,7 +11225,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More Speed+20%
+  m_Text: "Increased Shield Freaquency by 10%\n(\u589E\u52A0\u62A4\u76FE10%\u89E6\u53D1\u9891\u7387)"
 --- !u!222 &2077180337
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11430,155 +11234,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077180334}
   m_CullTransparentMesh: 1
---- !u!1 &2085096206
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2085096207}
-  - component: {fileID: 2085096210}
-  - component: {fileID: 2085096209}
-  - component: {fileID: 2085096208}
-  - component: {fileID: 2085096211}
-  m_Layer: 5
-  m_Name: skill09_JumpHp30
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2085096207
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085096206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2047420691}
-  - {fileID: 1784820122}
-  m_Father: {fileID: 1913012569}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 632, y: -358}
-  m_SizeDelta: {x: 318.307, y: 185.2762}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2085096208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085096206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 0
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.24705882, g: 0.24705882, b: 0.24705882, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2085096209}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2085096211}
-        m_TargetAssemblyTypeName: SkillTreeBtn, Assembly-CSharp
-        m_MethodName: OnSkillBtnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2085096209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085096206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.40392157, b: 0.6509804, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2085096210
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085096206}
-  m_CullTransparentMesh: 1
---- !u!114 &2085096211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085096206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68e8873f76c801e42bdabb7bbdc06f25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillUpNeed: 6
 --- !u!1 &2086661223
 GameObject:
   m_ObjectHideFlags: 0
@@ -11734,7 +11389,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More Speed+10%
+  m_Text: "Shield has 20% chance to deal double damage(only level once)\n(\u62A4\u76FE\u670920%\u7684\u51E0\u7387\u89E6\u53D1\u53CC\u500D\u4F24\u5BB3)"
 --- !u!222 &2089662024
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12019,7 +11674,7 @@ RectTransform:
   m_Children:
   - {fileID: 1741538329}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12039,7 +11694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 453250, guid: 890b00372fb140d4c9c7dbcaf02d8051, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 453250, guid: 890b00372fb140d4c9c7dbcaf02d8051, type: 3}
       propertyPath: m_LocalScale.x
@@ -12189,7 +11844,7 @@ PrefabInstance:
     - target: {fileID: 8518645242069275348, guid: 6a2291f253a0d9e41ab0a0386ca75bc9, type: 3}
       propertyPath: deathEffect
       value: 
-      objectReference: {fileID: 5562072877954156973, guid: 71802bf1d991c3f4cb18bcc7e9e6e98f, type: 3}
+      objectReference: {fileID: 5562072877954156973, guid: 040fa546bee57f248bbc6692e4f0a7fb, type: 3}
     - target: {fileID: 8518645242069275352, guid: 6a2291f253a0d9e41ab0a0386ca75bc9, type: 3}
       propertyPath: m_Drag
       value: 0
