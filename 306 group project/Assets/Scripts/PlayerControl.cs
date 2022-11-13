@@ -6,7 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
     private Animator playerAnima;
 
-    private Rigidbody rg;
+    private Rigidbody2D rg;
 
     private int jumpInt = 2;
     public GameObject deathEffect;
@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         playerAnima = GetComponent<Animator>();
-        rg = transform.GetComponent<Rigidbody>();
+        rg = transform.GetComponent<Rigidbody2D>();
     }
 
 
@@ -22,8 +22,8 @@ public class PlayerControl : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            transform.eulerAngles = new Vector3(0, -90f, 0);
-            transform.Translate(Vector3.forward * PlayerInfo.Instance.moveSpeed * Time.deltaTime, Space.Self);
+            transform.localScale = new Vector3(-6.12f, 6.12f, 6.12f);
+            transform.Translate(Vector2.left * PlayerInfo.Instance.moveSpeed * Time.deltaTime, Space.Self);
 
             playerAnima.SetBool("isMove", true);
         }
@@ -34,8 +34,8 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.eulerAngles = new Vector3(0, 90f, 0);
-            transform.Translate(Vector3.forward * PlayerInfo.Instance.moveSpeed * Time.deltaTime, Space.Self);
+            transform.localScale = new Vector3(6.12f, 6.12f, 6.12f);
+            transform.Translate(Vector2.right * PlayerInfo.Instance.moveSpeed * Time.deltaTime, Space.Self);
 
             playerAnima.SetBool("isMove", true);
         }
@@ -46,6 +46,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && jumpInt != 0)
         {
+            playerAnima.Play("PlayerJump");
             jumpInt -= 1;
             rg.AddForce(Vector3.up * PlayerInfo.Instance.jumpSpeed);
         }
@@ -53,7 +54,7 @@ public class PlayerControl : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollision2DEnter(Collision collision)
     {
 
         if (collision.gameObject.tag=="Ground")
@@ -64,6 +65,7 @@ public class PlayerControl : MonoBehaviour
 
     public void TakeDamage (int d)
     {
+
     }
 
     public void Kill ()

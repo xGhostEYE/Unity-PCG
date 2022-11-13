@@ -79,5 +79,13 @@ public class PlayerInfo : MonoBehaviour
     }
 
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        //+1 skill points if player collect the fruit
+        if (collision.gameObject.tag=="Skill_Fruit")
+        {
+            PlayerInfo.Instance.skillNum += 1;
+        }
+    }
 
 }
