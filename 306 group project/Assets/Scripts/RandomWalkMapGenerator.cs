@@ -14,7 +14,9 @@ public class RandomWalkMapGenerator : AbstractDungeonGenerator
         HashSet<Vector2Int> floor_positions = random_walk();
         tilemapVisualizer.Clear();
         tilemapVisualizer.paint_floor_tiles(floor_positions);
+        Debug.Log("Done painting floor");
         WallGenerator.create_walls(floor_positions,tilemapVisualizer);
+        Debug.Log("Done painting walls");
     }
 
     protected HashSet<Vector2Int> random_walk(){

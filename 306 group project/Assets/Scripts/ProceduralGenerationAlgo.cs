@@ -15,6 +15,19 @@ public static class ProceduralGenerationAlgo{
         }
         return path;
     }
+
+    public static List<Vector2Int> random_walk_corridor(Vector2Int start_position, int corridor_length){
+        List<Vector2Int> corridor = new List< Vector2Int>();
+        var direction = Direction2D.get_random_cardinal_direction();
+        var current_position = start_position;
+        corridor.Add(current_position);
+
+        for (int i = 0; i < corridor_length; i++){
+            current_position +=direction;
+            corridor.Add(current_position);
+        }
+        return corridor;
+    }
 }
 
 public static class Direction2D{
