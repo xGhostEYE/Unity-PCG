@@ -57,7 +57,7 @@ public class PlayerControl : MonoBehaviour
     private void OnCollision2DEnter(Collision collision)
     {
 
-        if (collision.gameObject.tag=="Ground")
+        if (collision.gameObject.tag=="ground")
         {
             jumpInt = 2;
         }
