@@ -10,6 +10,7 @@ TagManager:
   - Fog
   - EnemyBullet
   - Enemy
+  - Skill_Fruit
   layers:
   - Default
   - TransparentFX
