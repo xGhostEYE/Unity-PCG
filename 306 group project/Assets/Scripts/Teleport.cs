@@ -6,11 +6,13 @@ public class Teleport : MonoBehaviour
 {
     [SerializeField] public GameObject Portal;
     [SerializeField] public GameObject Player;
+    [SerializeField] private AudioSource portalSound;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player") {
             StartCoroutine (teleportation());
+            portalSound.Play();
         }
     }
 

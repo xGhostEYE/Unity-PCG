@@ -10,6 +10,8 @@ public class PlayerControl : MonoBehaviour
 
     private int jumpInt = 2;
     public GameObject deathEffect;
+    [SerializeField] private AudioSource jumpSound;
+    [SerializeField] private AudioSource deathSound;
 
     void Start()
     {
@@ -46,6 +48,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && jumpInt != 0)
         {
+            jumpSound.Play();
             playerAnima.Play("PlayerJump");
             jumpInt -= 1;
             rg.AddForce(Vector3.up * PlayerInfo.Instance.jumpSpeed);
@@ -71,8 +74,9 @@ public class PlayerControl : MonoBehaviour
     public void Kill ()
     {
         GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
+        deathSound.Play();
         Destroy(effect, 1.0f);
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 0.5f);
         GameManager.instance.gameOver();
     }
 }
