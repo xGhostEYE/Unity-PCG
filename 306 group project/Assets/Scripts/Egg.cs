@@ -9,6 +9,8 @@ public class Egg : MonoBehaviour
     Vector3 playerPos;
     float moveSpeed = 10.0f;
 
+    [SerializeField] private AudioSource collectSound;
+
     // get reference during load
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -32,12 +34,12 @@ public class Egg : MonoBehaviour
         flyToPlayer = true;
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "Player") {
-            // GameManager.instance.AddPoints(1);
+        if (other.gameObject.tag == "Player") {
+            collectSound.Play();
             PlayerInfo.Instance.jumpSpeed *= 1.1f;
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 0.3f);
         }
     }
 

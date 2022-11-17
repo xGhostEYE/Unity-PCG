@@ -67,17 +67,25 @@ public class PlayerInfo : MonoBehaviour
             }
         }
 
-        if (shieldAnimator.GetCurrentAnimatorClipInfo(1)[0].clip.name== "PlayerShield")
-        {
-            shieldAnimator.speed = shieldSpeed;
-        }
-        else
-        {
-            shieldAnimator.speed = 1f;
-        }
+       // if (shieldAnimator.GetCurrentAnimatorClipInfo(1)[0].clip.name== "PlayerShield")
+       // {
+       //     shieldAnimator.speed = shieldSpeed;
+       // }
+      //  else
+      //  {
+      //      shieldAnimator.speed = 1f;
+      //  }
       
     }
 
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        //+1 skill points if player collect the fruit
+        if (collision.gameObject.tag=="Skill_Fruit")
+        {
+            PlayerInfo.Instance.skillNum += 1;
+        }
+    }
 
 }
