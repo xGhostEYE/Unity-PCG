@@ -67,14 +67,11 @@ public class PlayerInfo : MonoBehaviour
             }
         }
 
-        if (shieldAnimator.GetCurrentAnimatorClipInfo(1)[0].clip.name== "PlayerShield")
-        {
+
             shieldAnimator.speed = shieldSpeed;
-        }
-        else
-        {
+
             shieldAnimator.speed = 1f;
-        }
+
       
       
     }
