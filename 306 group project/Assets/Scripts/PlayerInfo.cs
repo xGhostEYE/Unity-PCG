@@ -43,6 +43,7 @@ public class PlayerInfo : MonoBehaviour
 
 
     public Animator shieldAnimator;
+    private AnimatorStateInfo info;
 
     public Text skillNumText;
 
@@ -67,12 +68,15 @@ public class PlayerInfo : MonoBehaviour
             }
         }
 
-
+        info = shieldAnimator.GetCurrentAnimatorStateInfo(1);
+        if (info.IsName("PlayerShield"))
+        {
             shieldAnimator.speed = shieldSpeed;
+        }
 
+        else{
             shieldAnimator.speed = 1f;
-
-      
+        }
       
     }
 
