@@ -5,9 +5,10 @@ public class RandomWalkMapGenerator : AbstractDungeonGenerator
 {
     [SerializeField] private int iterations = 10;
     [SerializeField] private SimpleRandomWalkDATA random_walk_parameters;
-
+    [SerializeField] private Grid level_grid;
     void Start(){
         generate_dungeon();
+        level_grid.transform.localScale += new Vector3(3.0f, 3.0f, 0.0f);
     }
 
     protected override void run_procedural_generation(){
@@ -17,6 +18,8 @@ public class RandomWalkMapGenerator : AbstractDungeonGenerator
         Debug.Log("Done painting floor");
         WallGenerator.create_walls(floor_positions,tilemapVisualizer);
         Debug.Log("Done painting walls");
+        AssetPlacement.place_assets(floor_positions, tilemapVisualizer);
+        Debug.Log("Done painting assets");
     }
 
     protected HashSet<Vector2Int> random_walk(){

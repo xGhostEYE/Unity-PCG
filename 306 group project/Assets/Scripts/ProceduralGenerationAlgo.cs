@@ -33,11 +33,15 @@ public static class ProceduralGenerationAlgo{
 public static class Direction2D{
     public static List<Vector2Int> cardinal_directions_list = new List<Vector2Int>{
         new Vector2Int(0,1), // up
-        new Vector2Int(1,0), //right
         new Vector2Int(0,-1), //down
+        new Vector2Int(1,0), //right
         new Vector2Int(-1,0) //left
     };
     public static Vector2Int get_random_cardinal_direction(){
-        return cardinal_directions_list[Random.Range(0,cardinal_directions_list.Count)];
+        float random_number = Random.Range(0.0f,1.0f);
+        if (random_number<0.08){
+            return cardinal_directions_list[0];
+        }
+        return cardinal_directions_list[Random.Range(2,cardinal_directions_list.Count)];
     }
 }
