@@ -8,16 +8,16 @@ public class PlayerInfo : MonoBehaviour
     public static PlayerInfo Instance;
 
     [Header("Player's Name")]
-    public string playerName = "Riley";
+    public string playerName = "Riley"; 
 
     [Header("HP")]
-    public float hp = 100;
+    public float hp = 100; 
 
     [Header("Movement Speed")]
-    public float moveSpeed = 3f;
+    public float moveSpeed = 3f; 
 
     [Header("Jump")]
-    public float jumpSpeed = 30f;
+    public float jumpSpeed = 30f; 
 
     [Header("Double Jump")]
     public float doubleJumpSpeed = 30f;
@@ -58,7 +58,7 @@ public class PlayerInfo : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (GameObject.Find("SkillTreePanel").transform.localScale == Vector3.zero)
+            if (GameObject.Find("SkillTreePanel").transform.localScale==Vector3.zero)
             {
                 GameObject.Find("SkillTreePanel").transform.localScale = Vector3.one;
             }
@@ -74,18 +74,17 @@ public class PlayerInfo : MonoBehaviour
             shieldAnimator.speed = shieldSpeed;
         }
 
-        else
-        {
+        else{
             shieldAnimator.speed = 1f;
         }
-
+      
     }
 
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         //+1 skill points if player collect the fruit
-        if (collision.gameObject.tag == "Skill_Fruit")
+        if (collision.gameObject.tag=="Skill_Fruit")
         {
             PlayerInfo.Instance.skillNum += 1;
         }
