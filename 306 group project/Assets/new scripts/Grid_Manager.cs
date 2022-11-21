@@ -167,15 +167,20 @@ public class Grid_Manager : MonoBehaviour {
         grid_height = 15;
         Dictionary<Vector2, Tile> secret_room = new Dictionary<Vector2, Tile>();
         List<Dictionary<Vector2, Tile>> rooms_list = new List<Dictionary<Vector2, Tile>>();
-        
+        List<int> number_rooms = new List<int>();
+        number_rooms.Add(120);
+        number_rooms.Add(-120);
+        number_rooms.Add(200);
         for (int i = 0; i < 3; i++){
-            List<int> number_rooms = new List<int>();
-            number_rooms.Add(120);
-            number_rooms.Add(-120);
-            number_rooms.Add(200);
             for (int x = 0; x < grid_width; x++) {
                 for (int y = 0; y < grid_height; y++) {
-
+                    if(y == 0){
+                        if(x==(grid_width/2)-10){
+                            Instantiate(player, new Vector3(x, y), Quaternion.identity);
+                        }
+                        var floor = Instantiate(platform_prefab, new Vector3(x+number_rooms[i], y+number_rooms[i]), Quaternion.identity);
+                        floor.name = $"floor_Tile {x} {y}";
+                    }
                     var spawnedTile = Instantiate(room_background_prefab, new Vector3(x+number_rooms[i], y+number_rooms[i]), Quaternion.identity);
                     spawnedTile.name = $"room_Tile_{i} {x} {y}";
                     secret_room[new Vector2(x, y)] = spawnedTile;
@@ -184,13 +189,21 @@ public class Grid_Manager : MonoBehaviour {
                         Instantiate(enemy, new Vector3(grid_width+number_rooms[i]-5, y+number_rooms[i]), Quaternion.identity);
                         Instantiate(slime, new Vector3(grid_width+number_rooms[i]-1, y+number_rooms[i]), Quaternion.identity);
                     }
+
                 }
 
             }
             rooms_list.Add(secret_room);
             secret_room.Clear();
         }
-
+        for (int i = 0; i < 3; i++){
+            for (int y = 0; y < grid_height; y++) {
+                var left_wall = Instantiate(platform_prefab, new Vector3(0+number_rooms[i], y+number_rooms[i]), Quaternion.identity);
+                left_wall.name = $"left_wall_Tile {0} {y}";
+                var right_wall = Instantiate(platform_prefab, new Vector3(grid_width+number_rooms[i], y+number_rooms[i]), Quaternion.identity);
+                right_wall.name = $"right_right_Tile {0} {y}";
+            }
+        }
 
         return rooms_list;
     }
