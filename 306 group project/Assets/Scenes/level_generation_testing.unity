@@ -332,9 +332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612a412f9f6fe5142b21674cc2ab9225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _width: 0
-  _height: 0
-  prefab: {fileID: 0}
 --- !u!1 &1445318389
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +363,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background_prefab: {fileID: 23097716277309373, guid: 8b38218fb84fcef4883e224d3d8fce68, type: 3}
   platform_prefab: {fileID: 2788771051047028009, guid: 59bdc6934de73eb48b21c36c11365453, type: 3}
-  _cam: {fileID: 51724100}
+  room_background_prefab: {fileID: 2788771051047028009, guid: 33b8bdf2e9b292c4fb7fa89c87d375cc, type: 3}
+  enemy: {fileID: 189426, guid: 9a3786b1a41d2fe459f56a928e23aeed, type: 3}
+  portal: {fileID: 146120, guid: 7456c4eb8d29ddb42a3fa4b1200ce440, type: 3}
+  slime: {fileID: 189426, guid: 3cab1cb73de2ec04182d83ff7e65067f, type: 3}
+  player: {fileID: 189426, guid: 367221ffebc11434e8108d93ef4435a5, type: 3}
+  exit: {fileID: 187722, guid: 01631d9c2c00d294fa20e3ac7135bc8c, type: 3}
 --- !u!4 &1445318391
 Transform:
   m_ObjectHideFlags: 0
