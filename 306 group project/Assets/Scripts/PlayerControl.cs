@@ -52,6 +52,7 @@ public class PlayerControl : MonoBehaviour
             playerAnima.Play("PlayerJump");
             jumpInt -= 1;
             rg.AddForce(Vector3.up * PlayerInfo.Instance.jumpSpeed);
+            // rg.AddForce(Vector2.up * PlayerInfo.Instance.jumpSpeed);
         }
        
     }
