@@ -13,7 +13,7 @@ public class AcidSpawner : MonoBehaviour
     }
 
 
-    private void SpawnAcid() {
+    public void SpawnAcid() {
 
         for (int i = 0; i < 15; i++) {
             transform.position = new Vector3(transform.position.x + 5.0f, transform.position.y, transform.position.z);
