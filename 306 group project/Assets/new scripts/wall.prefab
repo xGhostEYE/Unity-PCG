@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2788771051047028009}
   - component: {fileID: 2631458635717641595}
   m_Layer: 0
-  m_Name: platform
+  m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5216935458091295904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.508, y: -2.6468573, z: 0}
-  m_LocalScale: {x: 0.331378, y: 0.11, z: 1}
+  m_LocalPosition: {x: -1.497, y: -2.493, z: 0}
+  m_LocalScale: {x: 0.16094132, y: 0.19312958, z: 1.6094131}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fcaf967ec5af81f45b83bc6b1a9ccdf8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f78e03f1b2abc8d4c879a341c0c36436, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,12 +119,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.24, y: 10.24}
+    oldSize: {x: 6.34, y: 5.12}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.95, y: 8.1}
+  m_Size: {x: 6.4, y: 5.22}
   m_EdgeRadius: 0
