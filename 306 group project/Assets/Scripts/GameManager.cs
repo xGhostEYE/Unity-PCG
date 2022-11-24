@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        PlayerInfo.Instance.display();
+        //PlayerInfo.Instance.display();
         PlayerPrefs.SetInt("Score", PlayerInfo.Instance.skillNum);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         PlayerInfo.Instance.skillNum = PlayerPrefs.GetInt("Score");
