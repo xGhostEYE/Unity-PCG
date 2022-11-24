@@ -10,6 +10,9 @@ TagManager:
   - Enemy
   - Skill_Fruit
   - PortalEnd
+  - Shield
+  - Exit
+  
   layers:
   - Default
   - TransparentFX

@@ -52,6 +52,7 @@ public class PlayerControl : MonoBehaviour
             playerAnima.Play("PlayerJump");
             jumpInt -= 1;
             rg.AddForce(Vector3.up * PlayerInfo.Instance.jumpSpeed);
+            // rg.AddForce(Vector2.up * PlayerInfo.Instance.jumpSpeed);
         }
        
     }
@@ -63,6 +64,11 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.tag=="Ground" || collision.gameObject.tag=="ground")
         {
             jumpInt = 2;
+        }
+
+        if (collision.gameObject.tag == "Exit")
+        {
+            GameManager.instance.NextLevel();
         }
     }
 
