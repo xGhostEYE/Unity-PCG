@@ -15,16 +15,33 @@ public static class ProceduralGenerationAlgo{
         }
         return path;
     }
+
+    public static List<Vector2Int> random_walk_corridor(Vector2Int start_position, int corridor_length){
+        List<Vector2Int> corridor = new List< Vector2Int>();
+        var direction = Direction2D.get_random_cardinal_direction();
+        var current_position = start_position;
+        corridor.Add(current_position);
+
+        for (int i = 0; i < corridor_length; i++){
+            current_position +=direction;
+            corridor.Add(current_position);
+        }
+        return corridor;
+    }
 }
 
 public static class Direction2D{
     public static List<Vector2Int> cardinal_directions_list = new List<Vector2Int>{
         new Vector2Int(0,1), // up
-        new Vector2Int(1,0), //right
         new Vector2Int(0,-1), //down
+        new Vector2Int(1,0), //right
         new Vector2Int(-1,0) //left
     };
     public static Vector2Int get_random_cardinal_direction(){
-        return cardinal_directions_list[Random.Range(0,cardinal_directions_list.Count)];
+        float random_number = Random.Range(0.0f,1.0f);
+        if (random_number<0.08){
+            return cardinal_directions_list[0];
+        }
+        return cardinal_directions_list[Random.Range(2,cardinal_directions_list.Count)];
     }
 }
