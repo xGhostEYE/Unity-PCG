@@ -11,7 +11,7 @@ public class PlayerInfo : MonoBehaviour
     public string playerName = "Riley"; 
 
     [Header("HP")]
-    public int hp = 100; 
+    public float hp = 100; 
 
     [Header("Movement Speed")]
     public float moveSpeed = 3f; 
@@ -28,6 +28,22 @@ public class PlayerInfo : MonoBehaviour
     [Header("Shield Damage")]
     public int damage = 10;
 
+    [Header("ShieldFrequency")]
+    public float shieldSpeed = 0.7f;
+
+    [Header("ShieldRange")]
+    public float shieldRange = 0;
+
+    [Header("DoubleDamage")]
+    public float doubleDamage = 0.15f;
+
+    [Header("RevivePlayer")]
+    public float revivePlayer = 0;
+
+
+
+    public Animator shieldAnimator;
+    private AnimatorStateInfo info;
 
     public Text skillNumText;
 
@@ -51,8 +67,27 @@ public class PlayerInfo : MonoBehaviour
                 GameObject.Find("SkillTreePanel").transform.localScale = Vector3.zero;
             }
         }
+
+        info = shieldAnimator.GetCurrentAnimatorStateInfo(1);
+        if (info.IsName("PlayerShield"))
+        {
+            shieldAnimator.speed = shieldSpeed;
+        }
+
+        else{
+            shieldAnimator.speed = 1f;
+        }
+      
     }
 
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        //+1 skill points if player collect the fruit
+        if (collision.gameObject.tag=="Skill_Fruit")
+        {
+            PlayerInfo.Instance.skillNum += 1;
+        }
+    }
 
 }
