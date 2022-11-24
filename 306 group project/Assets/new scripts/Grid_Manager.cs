@@ -216,7 +216,7 @@ public class Grid_Manager : MonoBehaviour {
                     secret_room[new Vector2(x, y)] = spawnedTile;
                     if(x==0 && y==0){
                         Instantiate(portal_prefab, new Vector3(x+number_rooms[i]+4, y+number_rooms[i]+4), Quaternion.identity);
-                        Instantiate(enemy_walking, new Vector3(grid_width+number_rooms[i]-5, y+number_rooms[i]), Quaternion.identity);
+                        Instantiate(enemy_walking, new Vector3(grid_width+number_rooms[i], y+number_rooms[i]+2), Quaternion.identity);
                         Instantiate(slime_prefab, new Vector3(grid_width+number_rooms[i]-1, y+number_rooms[i]), Quaternion.identity);
                     }
 
