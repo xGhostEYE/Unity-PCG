@@ -54,7 +54,7 @@ public class PlayerInfo : MonoBehaviour
 
     void Update()
     {
-        skillNumText.text = "SkillNum: " + skillNum.ToString();
+        skillNumText.text = "Points: " + skillNum.ToString();
 
         if (Input.GetKeyDown(KeyCode.Q))
         {

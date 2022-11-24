@@ -25,7 +25,7 @@ public class ShieldCollision : MonoBehaviour
 
     private void Expand()
     {
-        if (transform.localScale.x < origScale.x * 3)
+        if (transform.localScale.x < origScale.x * 4)
         {
             transform.localScale += origScale / 100;
         }
