@@ -82,7 +82,8 @@ public class PlayerControl : MonoBehaviour
         GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
         deathSound.Play();
         Destroy(effect, 1.0f);
-        Destroy(this.gameObject, 0.5f);
+        this.gameObject.SetActive(false);
+        //Destroy(this.gameObject, 0.5f);
         GameManager.instance.gameOver();
     }
 }

@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+    public static GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Score", PlayerInfo.Instance.skillNum);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         PlayerInfo.Instance.skillNum = PlayerPrefs.GetInt("Score");
+        player.SetActive(true);
     }
 
     public void gameOver()
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
     IEnumerator WaitLoad()
     {
         yield return new WaitForSeconds(2.0f);
+        PlayerPrefs.SetInt("Score", 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

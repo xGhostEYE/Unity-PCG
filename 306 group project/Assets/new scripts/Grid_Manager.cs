@@ -41,6 +41,7 @@ public class Grid_Manager : MonoBehaviour
         bool spawnedPortalOut = false;
         int chance_to_spawn_exit = UnityEngine.Random.Range(1, 3);
         acidSpawner.transform.position = new Vector3(0, -5);
+        acidSpawner.GetComponent<AcidSpawner>().SpawnAcid();
         // place background and floor
         for (int x = 0; x < grid_width; x++)
         {
