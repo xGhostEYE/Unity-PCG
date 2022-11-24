@@ -65,6 +65,11 @@ public class PlayerControl : MonoBehaviour
         {
             jumpInt = 2;
         }
+
+        if (collision.gameObject.tag == "Exit")
+        {
+            GameManager.instance.NextLevel();
+        }
     }
 
     public void TakeDamage (int d)

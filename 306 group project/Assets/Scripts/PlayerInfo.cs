@@ -80,6 +80,16 @@ public class PlayerInfo : MonoBehaviour
       
     }
 
+    public void display()
+    {
+        GameObject.Find("SkillTreePanel").transform.localScale = Vector3.one;
+    }
+
+    public void hide()
+    {
+        GameObject.Find("SkillTreePanel").transform.localScale = Vector3.zero;
+    }
+
 
     public void OnCollisionEnter2D(Collision2D collision)
     {

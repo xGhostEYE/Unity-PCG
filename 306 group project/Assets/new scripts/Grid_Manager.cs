@@ -12,6 +12,11 @@ public class Grid_Manager : MonoBehaviour
 
     [SerializeField] private GameObject enemy_flying, enemy_walking, enemy_wall_crawl, portal_prefab, slime_prefab, player, exit_prefab;
 
+    [SerializeField] private GameObject acidSpawner;
+
+    [SerializeField] private GameObject egg;
+
+    [SerializeField] private GameObject PortalIn, PortalOut;
 
     void Start()
     {
@@ -32,7 +37,10 @@ public class Grid_Manager : MonoBehaviour
         bool alread_spawned_right = false;
         bool alread_spawned_middle = false;
         bool alread_spawned_exit = false;
+        bool spawnedPortalIn = false;
+        bool spawnedPortalOut = false;
         int chance_to_spawn_exit = UnityEngine.Random.Range(1, 3);
+        acidSpawner.transform.position = new Vector3(0, -5);
         // place background and floor
         for (int x = 0; x < grid_width; x++)
         {
@@ -43,7 +51,8 @@ public class Grid_Manager : MonoBehaviour
                 {
                     if (x == (grid_width / 2) - 10)
                     {
-                        Instantiate(player, new Vector3(x, y), Quaternion.identity);
+                        //Instantiate(player, new Vector3(x, y+3), Quaternion.identity);
+                        player.transform.position = new Vector3(x, y + 3);
                     }
                     var floor = Instantiate(floor_prefab, new Vector3(x, y), Quaternion.identity);
                     floor.name = $"floor_Tile {x} {y}";
@@ -68,11 +77,13 @@ public class Grid_Manager : MonoBehaviour
             if (chance_to_spawn_exit == 1 && alread_spawned_exit == false && y == grid_height - 6)
             {
                 Instantiate(exit_prefab, new Vector3(1, y), Quaternion.identity);
+                if (spawnedPortalOut == false) PortalOut.transform.position = new Vector3(1, y);
                 alread_spawned_exit = true;
             }
             if (chance_to_spawn_exit == 2 && alread_spawned_exit == false && y == grid_height - 6)
             {
                 Instantiate(exit_prefab, new Vector3(grid_width - 1, y), Quaternion.identity);
+                if (spawnedPortalOut == false) PortalOut.transform.position = new Vector3(1, y);
                 alread_spawned_exit = true;
             }
         }
@@ -103,6 +114,11 @@ public class Grid_Manager : MonoBehaviour
                 platform_tiles[new Vector2(platform_length_left, y)] = left_platform_alt;
             }
 
+            if (UnityEngine.Random.Range(0.0f, 1.0f) < 0.2)
+            {
+                Instantiate(egg, new Vector3(platform_length_left, y+3), Quaternion.identity);
+            }
+
             // spawn enemy
             if (random_chance_spawn == 2)
             {
@@ -122,6 +138,7 @@ public class Grid_Manager : MonoBehaviour
                 if (y >= grid_height / 2)
                 {
                     Instantiate(portal_prefab, new Vector3(platform_length_left, y + 1), Quaternion.identity);
+                    
                     alread_spawned_left = true;
                 }
             }
@@ -144,6 +161,12 @@ public class Grid_Manager : MonoBehaviour
                 right_platofrm_alt.name = $"right_platform_Tile {grid_width - platform_length_right} {y}";
                 platform_tiles[new Vector2(grid_width - platform_length_right, y)] = right_platofrm_alt;
             }
+
+            if (UnityEngine.Random.Range(0.0f, 1.0f) < 0.2)
+            {
+                Instantiate(egg, new Vector3(grid_width - platform_length_right, y), Quaternion.identity);
+            }
+
             // spawn enemy
             if (random_chance_spawn == 2)
             {
@@ -166,6 +189,7 @@ public class Grid_Manager : MonoBehaviour
                     alread_spawned_right = true;
                 }
             }
+
             // place platforms on middle
             random_chance_spawn = UnityEngine.Random.Range(1, 3);
             int platform_length_middle = UnityEngine.Random.Range(4, 7);
@@ -182,6 +206,11 @@ public class Grid_Manager : MonoBehaviour
                 var middle_platform_alt = Instantiate(platform_prefab, new Vector3(grid_width - (grid_width / 2), y), Quaternion.identity);
                 middle_platform_alt.name = $"middle_platform_Tile {grid_width - (grid_width / 2)} {y}";
                 platform_tiles[new Vector2(grid_width - (grid_width / 2), y)] = middle_platform_alt;
+            }
+
+            if (UnityEngine.Random.Range(0.0f, 1.0f) < 0.2)
+            {
+                Instantiate(egg, new Vector3(grid_width - (grid_width / 2), y), Quaternion.identity);
             }
             // spawn enemy
             if (random_chance_spawn == 2)
@@ -204,6 +233,16 @@ public class Grid_Manager : MonoBehaviour
                     Instantiate(portal_prefab, new Vector3(grid_width - (grid_width / 2), y + 1), Quaternion.identity);
                     alread_spawned_middle = true;
                 }
+            }
+
+            if (random_chance_spawn == 1 && spawnedPortalIn == false && alread_spawned_middle)
+            {
+                PortalIn.transform.position = new Vector3(grid_width - (grid_width / 2), y + 1);
+            }
+
+            if (random_chance_spawn == 1 && spawnedPortalIn == true && spawnedPortalOut == false)
+            {
+                PortalOut.transform.position = new Vector3(grid_width - (grid_width / 2), y + 1);
             }
             y = y + UnityEngine.Random.Range(4, 8);
             // place platforms in between middle and sides
