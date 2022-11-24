@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ground
+  - Ground
+  - Fog
+  - EnemyBullet
+  - Enemy
+  - Skill_Fruit
+  - Shield
   layers:
   - Default
   - TransparentFX
