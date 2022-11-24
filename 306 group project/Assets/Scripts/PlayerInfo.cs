@@ -50,6 +50,7 @@ public class PlayerInfo : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        skillNum = PlayerPrefs.GetInt("Score", 0);
     }
 
     void Update()
