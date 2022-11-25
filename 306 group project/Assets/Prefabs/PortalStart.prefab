@@ -133,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5757618758660398637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 104.6, y: 1038.3, z: 0}
+  m_LocalPosition: {x: 25, y: 67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -153,8 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d9b2fdb00126347831b34c81402d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Portal: {fileID: 0}
-  Player: {fileID: 0}
+  portalsFound: []
   portalSound: {fileID: 5757618758660398635}
 --- !u!61 &5757618758660398633
 BoxCollider2D:
