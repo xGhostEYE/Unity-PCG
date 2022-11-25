@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5843021290679268306}
   m_Layer: 0
   m_Name: Cliff
-  m_TagString: Ground
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
