@@ -8,9 +8,9 @@ public class Grid_Manager : MonoBehaviour
 {
     private int grid_width, grid_height;
 
-    [SerializeField] private Tile background_prefab, platform_prefab, platform_large_prefab, wall_prefab, floor_prefab, room_background_prefab;
+    [SerializeField] private Tile background_prefab, wall_prefab, floor_prefab, room_background_prefab;
 
-    [SerializeField] private GameObject enemy_flying, enemy_walking, enemy_wall_crawl, portal_prefab, slime_prefab, player, exit_prefab;
+    [SerializeField] private GameObject enemy_flying, enemy_walking, enemy_wall_crawl, portal_prefab, slime_prefab, player, exit_prefab, platform_prefab, platform_large_prefab, platform_prefab_moving;
 
     [SerializeField] private GameObject acidSpawner;
 
@@ -27,7 +27,6 @@ public class Grid_Manager : MonoBehaviour
     {
         grid_width = UnityEngine.Random.Range(40, 60);
         grid_height = UnityEngine.Random.Range(70, 100);
-        int type_of_enemy;
         int platform_size;
         Dictionary<Vector2, Tile> background_tiles = new Dictionary<Vector2, Tile>();
         Dictionary<Vector2, Tile> floor_tiles = new Dictionary<Vector2, Tile>();
@@ -100,38 +99,19 @@ public class Grid_Manager : MonoBehaviour
             // place platforms on left side
             int random_chance_spawn = UnityEngine.Random.Range(1, 3);
             int platform_length_left = UnityEngine.Random.Range(4, 7);
-            platform_size = UnityEngine.Random.Range(1, 3);
+            platform_size = UnityEngine.Random.Range(1, 4);
 
-            if (platform_size == 1)
-            {
-                var left_platform = Instantiate(platform_large_prefab, new Vector3(platform_length_left, y), Quaternion.identity);
-                left_platform.name = $"left_platform_Tile {platform_length_left} {y}";
-                platform_tiles[new Vector2(platform_length_left, y)] = left_platform;
-            }
-            else
-            {
-                var left_platform_alt = Instantiate(platform_prefab, new Vector3(platform_length_left, y), Quaternion.identity);
-                left_platform_alt.name = $"left_platform_Tile {platform_length_left} {y}";
-                platform_tiles[new Vector2(platform_length_left, y)] = left_platform_alt;
-            }
-
-            if (UnityEngine.Random.Range(0.0f, 1.0f) < 0.2)
-            {
-                Instantiate(egg, new Vector3(platform_length_left, y+3), Quaternion.identity);
-            }
+            generate_platform(platform_length_left, y, platform_size);
+            // generate eggs
+            // if (UnityEngine.Random.Range(0.0f, 1.0f) < 0.2)
+            // {
+            //     Instantiate(egg, new Vector3(platform_length_left, y+3), Quaternion.identity);
+            // }
 
             // spawn enemy
             if (random_chance_spawn == 2)
             {
-                type_of_enemy = UnityEngine.Random.Range(1, 4);
-                if (type_of_enemy == 1)
-                {
-                    Instantiate(enemy_flying, new Vector3(platform_length_left, y + 1), Quaternion.identity);
-                }
-                if (type_of_enemy == 2)
-                {
-                    Instantiate(enemy_walking, new Vector3(platform_length_left, y + 1), Quaternion.identity);
-                }
+                generate_enemies(platform_length_left, y);
             }
             // spawn portal
             if (random_chance_spawn == 1 && numer_of_portals < 3 && alread_spawned_left == false)
@@ -149,37 +129,18 @@ public class Grid_Manager : MonoBehaviour
             // place platforms on right side
             random_chance_spawn = UnityEngine.Random.Range(1, 3);
             int platform_length_right = UnityEngine.Random.Range(4, 7);
-            platform_size = UnityEngine.Random.Range(1, 3);
-            if (platform_size == 1)
-            {
-                var right_platform = Instantiate(platform_large_prefab, new Vector3(grid_width - platform_length_right, y), Quaternion.identity);
-                right_platform.name = $"right_platform_Tile {grid_width - platform_length_right} {y}";
-                platform_tiles[new Vector2(grid_width - platform_length_right, y)] = right_platform;
-            }
-            else
-            {
-                var right_platofrm_alt = Instantiate(platform_prefab, new Vector3(grid_width - platform_length_right, y), Quaternion.identity);
-                right_platofrm_alt.name = $"right_platform_Tile {grid_width - platform_length_right} {y}";
-                platform_tiles[new Vector2(grid_width - platform_length_right, y)] = right_platofrm_alt;
-            }
-
-            if (UnityEngine.Random.Range(0.0f, 1.0f) < 0.2)
-            {
-                Instantiate(egg, new Vector3(grid_width - platform_length_right, y), Quaternion.identity);
-            }
+            platform_size = UnityEngine.Random.Range(1, 4);
+            generate_platform(grid_width - platform_length_right, y, platform_size);
+            // place egg
+            // if (UnityEngine.Random.Range(0.0f, 1.0f) < 0.2)
+            // {
+            //     Instantiate(egg, new Vector3(grid_width - platform_length_right, y), Quaternion.identity);
+            // }
 
             // spawn enemy
             if (random_chance_spawn == 2)
             {
-                type_of_enemy = UnityEngine.Random.Range(1, 4);
-                if (type_of_enemy == 1)
-                {
-                    Instantiate(enemy_flying, new Vector3(grid_width - platform_length_right, y + 1), Quaternion.identity);
-                }
-                if (type_of_enemy == 2)
-                {
-                    Instantiate(enemy_walking, new Vector3(grid_width - platform_length_right, y + 1), Quaternion.identity);
-                }
+                generate_enemies(grid_width - platform_length_right,y);
             }
             // spawn portal
             if (random_chance_spawn == 1 && numer_of_portals < 3 && alread_spawned_right == false)
@@ -195,66 +156,47 @@ public class Grid_Manager : MonoBehaviour
             random_chance_spawn = UnityEngine.Random.Range(1, 3);
             int platform_length_middle = UnityEngine.Random.Range(4, 7);
             // should make it randomly go left or right in the middle
-            platform_size = UnityEngine.Random.Range(1, 3);
-            if (platform_size == 1)
-            {
-                var middle_platform = Instantiate(platform_large_prefab, new Vector3(grid_width - (grid_width / 2), y), Quaternion.identity);
-                middle_platform.name = $"middle_platform_Tile {grid_width - (grid_width / 2)} {y}";
-                platform_tiles[new Vector2(grid_width - (grid_width / 2), y)] = middle_platform;
-            }
-            else
-            {
-                var middle_platform_alt = Instantiate(platform_prefab, new Vector3(grid_width - (grid_width / 2), y), Quaternion.identity);
-                middle_platform_alt.name = $"middle_platform_Tile {grid_width - (grid_width / 2)} {y}";
-                platform_tiles[new Vector2(grid_width - (grid_width / 2), y)] = middle_platform_alt;
-            }
-
-            if (UnityEngine.Random.Range(0.0f, 1.0f) < 0.2)
-            {
-                Instantiate(egg, new Vector3(grid_width - (grid_width / 2), y), Quaternion.identity);
-            }
+            platform_size = UnityEngine.Random.Range(1, 4);
+            generate_platform(grid_width - (grid_width / 2),y,platform_size);
+            // place egg
+            // if (UnityEngine.Random.Range(0.0f, 1.0f) < 0.2)
+            // {
+            //     Instantiate(egg, new Vector3(grid_width - (grid_width / 2), y), Quaternion.identity);
+            // }
             // spawn enemy
             if (random_chance_spawn == 2)
             {
-                type_of_enemy = UnityEngine.Random.Range(1, 4);
-                if (type_of_enemy == 1)
-                {
-                    Instantiate(enemy_flying, new Vector3(grid_width - (grid_width / 2), y + 1), Quaternion.identity);
-                }
-                if (type_of_enemy == 2)
-                {
-                    Instantiate(enemy_walking, new Vector3(grid_width - (grid_width / 2), y + 1), Quaternion.identity);
-                }
+                generate_enemies(grid_width - (grid_width / 2),y);
             }
             // spawn portal
             if (random_chance_spawn == 1 && numer_of_portals < 3 && alread_spawned_middle == false)
             {
                 if (y >= grid_height / 4)
                 {
-                    Instantiate(portal_prefab, new Vector3(grid_width - (grid_width / 2), y + 1), Quaternion.identity);
+                    Instantiate(PortalIn, new Vector3(grid_width - (grid_width / 2), y + 1), Quaternion.identity);
                     alread_spawned_middle = true;
                 }
             }
 
-            if (random_chance_spawn == 1 && spawnedPortalIn == false && alread_spawned_middle)
-            {
-                PortalIn.transform.position = new Vector3(grid_width - (grid_width / 2), y + 1);
-            }
+            // if (random_chance_spawn == 1 && spawnedPortalIn == false && alread_spawned_middle)
+            // {
+            //     PortalIn.transform.position = new Vector3(grid_width - (grid_width / 2), y + 1);
+            // }
 
-            if (random_chance_spawn == 1 && spawnedPortalIn == true && spawnedPortalOut == false)
-            {
-                PortalOut.transform.position = new Vector3(grid_width - (grid_width / 2), y + 1);
-            }
-            y = y + UnityEngine.Random.Range(4, 8);
+            // if (random_chance_spawn == 1 && spawnedPortalIn == true && spawnedPortalOut == false)
+            // {
+            //     PortalOut.transform.position = new Vector3(grid_width - (grid_width / 2), y + 1);
+            // }
+            y = y + UnityEngine.Random.Range(6, 9);
             // place platforms in between middle and sides
             // should make it randomly go left or right in the middle
-            var right_middle_platform = Instantiate(platform_prefab, new Vector3(grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4), y - 3), Quaternion.identity);
+            var right_middle_platform = Instantiate(platform_prefab, new Vector3(grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4)-4, y - 3), Quaternion.identity);
             right_middle_platform.name = $"right_middle_platform_Tile {grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4)} {y}";
-            platform_tiles[new Vector2(grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4), y)] = right_middle_platform;
+            // platform_tiles[new Vector2(grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4), y)] = right_middle_platform;
             // should make it randomly go left or right in the middle
-            var left_middle_platform = Instantiate(platform_prefab, new Vector3((grid_width / 2) - (grid_width / 4) - 3 + UnityEngine.Random.Range(2, 4), y - 3), Quaternion.identity);
+            var left_middle_platform = Instantiate(platform_prefab, new Vector3((grid_width / 2) - (grid_width / 4) + UnityEngine.Random.Range(2, 4), y - 3), Quaternion.identity);
             left_middle_platform.name = $"left_middle_platform_Tile {grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4)} {y}";
-            platform_tiles[new Vector2(grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4), y)] = left_middle_platform;
+            // platform_tiles[new Vector2(grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4), y)] = left_middle_platform;
 
         }
 
@@ -262,6 +204,36 @@ public class Grid_Manager : MonoBehaviour
 
 
 
+
+    }
+
+
+    private void generate_platform(int x, int y, int size){
+        if (size == 1)
+        {
+            Instantiate(platform_large_prefab, new Vector3(x, y), Quaternion.identity);
+        }
+        if (size == 2)
+        {
+            Instantiate(platform_prefab_moving, new Vector3(x, y), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(platform_prefab, new Vector3(x, y), Quaternion.identity);
+        }
+    }
+
+    private void generate_enemies(int x, int y){
+        var spawn_type = UnityEngine.Random.Range(1, 4);
+        if (spawn_type == 1){
+            Instantiate(enemy_flying, new Vector3(x, y + 1), Quaternion.identity);
+        }
+        if (spawn_type == 2){
+            Instantiate(enemy_walking, new Vector3(x, y + 1), Quaternion.identity);
+        }
+        // else{
+        //     Instantiate(enemy_wall_crawl, new Vector3(x, y + 1), Quaternion.identity);
+        // }
 
     }
 
@@ -287,7 +259,7 @@ public class Grid_Manager : MonoBehaviour
                         {
                             Instantiate(player, new Vector3(x, y), Quaternion.identity);
                         }
-                        var floor = Instantiate(platform_prefab, new Vector3(x + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
+                        var floor = Instantiate(floor_prefab, new Vector3(x + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
                         floor.name = $"floor_Tile {x} {y}";
                     }
                     var spawnedTile = Instantiate(room_background_prefab, new Vector3(x + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
@@ -295,9 +267,9 @@ public class Grid_Manager : MonoBehaviour
                     secret_room[new Vector2(x, y)] = spawnedTile;
                     if (x == 0 && y == 0)
                     {
-                        Instantiate(portal_prefab, new Vector3(x + number_rooms[i] + 4, y + number_rooms[i] + 4), Quaternion.identity);
+                        Instantiate(PortalOut, new Vector3(x + number_rooms[i] + 4, y + number_rooms[i] + 2), Quaternion.identity);
                         Instantiate(enemy_walking, new Vector3(grid_width + number_rooms[i], y + number_rooms[i] + 2), Quaternion.identity);
-                        Instantiate(slime_prefab, new Vector3(grid_width + number_rooms[i] - 1, y + number_rooms[i]), Quaternion.identity);
+                        Instantiate(egg, new Vector3(grid_width + number_rooms[i] - 1, y + number_rooms[i]+1), Quaternion.identity);
                     }
 
                 }
@@ -310,9 +282,9 @@ public class Grid_Manager : MonoBehaviour
         {
             for (int y = 0; y < grid_height; y++)
             {
-                var left_wall = Instantiate(platform_prefab, new Vector3(0 + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
+                var left_wall = Instantiate(wall_prefab, new Vector3(0 + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
                 left_wall.name = $"left_wall_Tile {0} {y}";
-                var right_wall = Instantiate(platform_prefab, new Vector3(grid_width + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
+                var right_wall = Instantiate(wall_prefab, new Vector3(grid_width + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
                 right_wall.name = $"right_right_Tile {0} {y}";
             }
         }
