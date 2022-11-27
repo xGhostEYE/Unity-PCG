@@ -50,11 +50,12 @@ public class PlayerInfo : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        skillNum = PlayerPrefs.GetInt("Score", 0);
     }
 
     void Update()
     {
-        skillNumText.text = "SkillNum: " + skillNum.ToString();
+        skillNumText.text = "Points: " + skillNum.ToString();
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -78,6 +79,16 @@ public class PlayerInfo : MonoBehaviour
             shieldAnimator.speed = 1f;
         }
       
+    }
+
+    public void display()
+    {
+        GameObject.Find("SkillTreePanel").transform.localScale = Vector3.one;
+    }
+
+    public void hide()
+    {
+        GameObject.Find("SkillTreePanel").transform.localScale = Vector3.zero;
     }
 
 

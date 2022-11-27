@@ -38,7 +38,8 @@ public class Egg : MonoBehaviour
     {
         if (other.gameObject.tag == "Player") {
             collectSound.Play();
-            PlayerInfo.Instance.jumpSpeed *= 1.1f;
+            //PlayerInfo.Instance.jumpSpeed *= 1.1f;
+            PlayerInfo.Instance.skillNum += 1;
             Destroy(this.gameObject, 0.3f);
         }
     }
