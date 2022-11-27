@@ -10,7 +10,7 @@ public class Grid_Manager : MonoBehaviour
 
     [SerializeField] private Tile background_prefab, wall_prefab, floor_prefab, room_background_prefab;
 
-    [SerializeField] private GameObject enemy_flying, enemy_walking, enemy_wall_crawl, portal_prefab, slime_prefab, player, exit_prefab, platform_prefab, platform_large_prefab, platform_prefab_moving;
+    [SerializeField] private GameObject enemy_flying, enemy_walking, enemy_wall_crawl, portal_prefab, slime_prefab, player, exit_prefab, platform_prefab, platform_large_prefab, platform_prefab_moving, grass_prefab, fence_1_prefab, fence_2_prefab, fence_3_prefab, rock_head_prefab, sign_prefab, tree_trunk_1_prefab, tree_trunk_3_prefab, tree_trunk_4_prefab, stone_prefab, tree_prefab;
 
     [SerializeField] private GameObject acidSpawner;
 
@@ -18,6 +18,7 @@ public class Grid_Manager : MonoBehaviour
 
     [SerializeField] private GameObject PortalIn, PortalOut;
 
+       
     void Start()
     {
         GenerateGrid();
@@ -41,6 +42,10 @@ public class Grid_Manager : MonoBehaviour
         int chance_to_spawn_exit = UnityEngine.Random.Range(1, 3);
         acidSpawner.transform.position = new Vector3(0, -5);
         acidSpawner.GetComponent<AcidSpawner>().SpawnAcid();
+
+        List<GameObject> list_of_decorations = new List<GameObject>(){stone_prefab, tree_prefab};
+        List<GameObject> list_of_fences = new List<GameObject>(){fence_1_prefab, fence_2_prefab, fence_3_prefab};
+        List<GameObject> list_of_tree_trunks = new List<GameObject>(){tree_trunk_1_prefab, tree_trunk_3_prefab, tree_trunk_4_prefab};
         // place background and floor
         for (int x = 0; x < grid_width; x++)
         {
@@ -57,6 +62,27 @@ public class Grid_Manager : MonoBehaviour
                     var floor = Instantiate(floor_prefab, new Vector3(x, y), Quaternion.identity);
                     floor.name = $"floor_Tile {x} {y}";
                     floor_tiles[new Vector2(x, y)] = floor;
+                    Instantiate(grass_prefab, new Vector3(x, y+1), Quaternion.identity);
+                    var random_asset = UnityEngine.Random.Range(0,5);
+                    if (random_asset == 1){
+                        Instantiate(list_of_fences[UnityEngine.Random.Range(0,list_of_fences.Count)], new Vector3(x, y+2), Quaternion.identity);
+                    }
+                    if (random_asset == 2){
+                        var type_of_tree = list_of_tree_trunks[UnityEngine.Random.Range(0,list_of_tree_trunks.Count)];
+                        if(type_of_tree == tree_trunk_1_prefab){
+                            Instantiate(type_of_tree, new Vector3(x, y+4), Quaternion.identity);
+                        }
+                        else{
+                            Instantiate(type_of_tree, new Vector3(x, y+2), Quaternion.identity);
+                        }
+                        
+                    }
+                    if(random_asset == 3){
+                        Instantiate(list_of_decorations[UnityEngine.Random.Range(0,list_of_decorations.Count)], new Vector3(x, y+2), Quaternion.identity);
+                    }
+                    if(random_asset == 4){
+                        Instantiate(tree_prefab, new Vector3(x, y+6), Quaternion.identity);
+                    }
                 }
 
                 // place backgroun
@@ -76,13 +102,13 @@ public class Grid_Manager : MonoBehaviour
             // spawn exit
             if (chance_to_spawn_exit == 1 && alread_spawned_exit == false && y == grid_height - 6)
             {
-                Instantiate(exit_prefab, new Vector3(1, y), Quaternion.identity);
+                Instantiate(exit_prefab, new Vector3(2, y), Quaternion.identity);
                 if (spawnedPortalOut == false) PortalOut.transform.position = new Vector3(1, y);
                 alread_spawned_exit = true;
             }
             if (chance_to_spawn_exit == 2 && alread_spawned_exit == false && y == grid_height - 6)
             {
-                Instantiate(exit_prefab, new Vector3(grid_width - 1, y), Quaternion.identity);
+                Instantiate(exit_prefab, new Vector3(grid_width - 2, y), Quaternion.identity);
                 if (spawnedPortalOut == false) PortalOut.transform.position = new Vector3(1, y);
                 alread_spawned_exit = true;
             }

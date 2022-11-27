@@ -394,19 +394,71 @@ PrefabInstance:
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: PortalIn
       value: 
-      objectReference: {fileID: 5757618758660398637, guid: 06656bad37620aa41b35bdcc0d2160ae, type: 3}
+      objectReference: {fileID: 189426, guid: 3cab1cb73de2ec04182d83ff7e65067f, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: PortalOut
       value: 
-      objectReference: {fileID: 9101105906592181733, guid: fde00bd8d74548e41af4a2da45bc1c88, type: 3}
+      objectReference: {fileID: 189426, guid: 3cab1cb73de2ec04182d83ff7e65067f, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: acidSpawner
       value: 
       objectReference: {fileID: 2938427554870074575, guid: 9b927a5d9db50fa4aa521fc6d09a00b0, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: exit_prefab
+      value: 
+      objectReference: {fileID: 5757618758660398637, guid: 06656bad37620aa41b35bdcc0d2160ae, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: sign_prefab
+      value: 
+      objectReference: {fileID: 6321309953582558774, guid: 0ed358530f7c2334689f13a279314e34, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_prefab
+      value: 
+      objectReference: {fileID: 225591607930445936, guid: c86d67ab12488ca499479da41827cb60, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: grass_prefab
+      value: 
+      objectReference: {fileID: 5695719281033571502, guid: abfb08c9451b87a4f9919351ad7c8dd5, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: stone_prefab
+      value: 
+      objectReference: {fileID: 1187209558691136266, guid: 471e96548718ec44f8873680ec4973a5, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: fence_1_prefab
+      value: 
+      objectReference: {fileID: 8693482590028282068, guid: cab9867bc78279f4ab4f38780b294adf, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: fence_2_prefab
+      value: 
+      objectReference: {fileID: 8928704918932275813, guid: 4f4d08b0a18c8a34a842b3a9f1d4d2b7, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: fence_3_prefab
+      value: 
+      objectReference: {fileID: 8513665864897058026, guid: 86c57054fd1861f4186db5b1ca814b25, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: platform_prefab
       value: 
       objectReference: {fileID: 7439344766214185256, guid: 2a930e1ff6b268948ad3a45646db2b49, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: rock_head_prefab
+      value: 
+      objectReference: {fileID: 3052525548567199361, guid: 9b5ba68e5a1a95d4689d3779166661e5, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_trunk_1_prefab
+      value: 
+      objectReference: {fileID: 7906225920102756120, guid: e5cf06ab9706a9a45b84223f5da3529f, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_trunk_2_prefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_trunk_3_prefab
+      value: 
+      objectReference: {fileID: 3012750756268821499, guid: a1d76d3cad8754844815ad0f291018cb, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_trunk_4_prefab
+      value: 
+      objectReference: {fileID: 3153266219489458327, guid: 7301b03692afc3543a0c46bba21d6105, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: platform_large_prefab
       value: 
