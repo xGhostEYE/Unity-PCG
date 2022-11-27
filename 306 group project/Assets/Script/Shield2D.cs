@@ -1,19 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Shield2D : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float minScale;
+    public float maxScale;
+
+    public float timer = 0f;
+
     void Start()
     {
-        
+        //shield shrink animation
+        timer = PlayerInfo.Instance.shieldSpeed;
+        maxScale = PlayerInfo.Instance.shieldRange;
+
+        Sequence sequence = DOTween.Sequence();
+        //add wanted animation into the queue
+        sequence.Append(transform.DOScale(new Vector3(maxScale, maxScale, maxScale), timer));//bigger scale
+        //sequence.AppendInterval(1);
+        sequence.Append(transform.DOScale(new Vector3(minScale, minScale, minScale), timer));//smaller scale                                                                              //这个队列循环播放
+        sequence.SetLoops(-1);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
     void OnCollisionStay2D(Collision2D collision)

@@ -11,7 +11,10 @@ public class PlayerInfo : MonoBehaviour
     public string playerName = "Riley"; 
 
     [Header("HP")]
-    public float hp = 100; 
+    public float hp = 100;
+
+    [Header("PlayerHpBar")]
+    public Image hpBar;
 
     [Header("Movement Speed")]
     public float moveSpeed = 3f; 
@@ -29,18 +32,16 @@ public class PlayerInfo : MonoBehaviour
     public int damage = 10;
 
     [Header("ShieldFrequency")]
-    public float shieldSpeed = 0.7f;
+    public float shieldSpeed = 0.5f;
 
     [Header("ShieldRange")]
-    public float shieldRange = 0;
+    public float shieldRange = 0.13f;
 
     [Header("DoubleDamage")]
     public float doubleDamage = 0.15f;
 
     [Header("RevivePlayer")]
     public float revivePlayer = 0;
-
-
 
     public Animator shieldAnimator;
     private AnimatorStateInfo info;
@@ -51,11 +52,14 @@ public class PlayerInfo : MonoBehaviour
     {
         Instance = this;
         skillNum = PlayerPrefs.GetInt("Score", 0);
+
+        hpBar.fillAmount = hp / 100;
     }
 
     void Update()
     {
         skillNumText.text = "Points: " + skillNum.ToString();
+        hpBar.fillAmount = hp / 100;
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -69,16 +73,8 @@ public class PlayerInfo : MonoBehaviour
             }
         }
 
-        info = shieldAnimator.GetCurrentAnimatorStateInfo(1);
-        if (info.IsName("PlayerShield"))
-        {
-            shieldAnimator.speed = shieldSpeed;
-        }
+        shieldAnimator.SetFloat("ShieldSpeed", shieldSpeed);
 
-        else{
-            shieldAnimator.speed = 1f;
-        }
-      
     }
 
     public void display()

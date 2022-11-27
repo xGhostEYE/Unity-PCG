@@ -65,11 +65,19 @@ public class SkillTreeBtn : MonoBehaviour
                 PlayerInfo.Instance.shieldSpeed += PlayerInfo.Instance.shieldSpeed + 0.1f;
                 PlayerInfo.Instance.skillNum -= this.skillUpNeed;
                 GetComponent<Button>().interactable = false;
+
+                //保存当前护盾频率
+                PlayerPrefs.SetFloat("ShieldSpeed", PlayerInfo.Instance.shieldSpeed);
+                PlayerPrefs.Save();
                 break;
             case "skill06_ShieldRange10":
                 PlayerInfo.Instance.shieldRange += PlayerInfo.Instance.shieldRange + 0.1f;
                 PlayerInfo.Instance.skillNum -= this.skillUpNeed;
                 GetComponent<Button>().interactable = false;
+
+                //保存当前护盾范围
+                PlayerPrefs.SetFloat("ShieldRange", PlayerInfo.Instance.shieldRange);
+                PlayerPrefs.Save();
                 break;
 
             case "skill07_ShieldDoubleDamage":

@@ -65,6 +65,14 @@ public class PlayerControl : MonoBehaviour
         {
             jumpInt = 2;
         }
+        if (collision.gameObject.tag == "Enemy" && PlayerInfo.Instance.hp > 0)
+        {
+            PlayerInfo.Instance.hp -= 20;
+        }
+        if (collision.gameObject.tag == "EnemyBullet" && PlayerInfo.Instance.hp > 0)
+        {
+            PlayerInfo.Instance.hp -= 5;
+        }
 
         if (collision.gameObject.tag == "Exit")
         {
