@@ -12,7 +12,7 @@ public class Shield2D : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();//reset info
+        PlayerPrefs.DeleteAll();
     }
 
     void Update()
@@ -20,17 +20,18 @@ public class Shield2D : MonoBehaviour
         shieldTimer = PlayerInfo.Instance.shieldSpeed;
         maxScale = PlayerInfo.Instance.shieldRange;
 
-        // shield animation
+
         if (transform.localScale == new Vector3(minScale,minScale,minScale))
         {
             Debug.LogWarning("1");
-            transform.DOScale(new Vector3(maxScale, maxScale, maxScale), shieldTimer);//bigger shield
+            transform.DOScale(new Vector3(maxScale, maxScale, maxScale), shieldTimer);
         }
         if (transform.localScale.x >= maxScale)
         {
             Debug.LogWarning("2");
-            transform.DOScale(new Vector3(minScale, minScale, minScale), shieldTimer);//smaller shield
+            transform.DOScale(new Vector3(minScale, minScale, minScale), shieldTimer); 
         }
+        
 
     }
 

@@ -66,7 +66,7 @@ public class SkillTreeBtn : MonoBehaviour
                 PlayerInfo.Instance.skillNum -= this.skillUpNeed;
                 GetComponent<Button>().interactable = false;
 
-                //���浱ǰ����Ƶ��
+                
                 PlayerPrefs.SetFloat("ShieldSpeed", PlayerInfo.Instance.shieldSpeed);
                 PlayerPrefs.Save();
                 break;
@@ -78,7 +78,7 @@ public class SkillTreeBtn : MonoBehaviour
                 GameObject.Find("2DShield").transform.localScale = new Vector3(PlayerInfo.Instance.shieldRange,
                     PlayerInfo.Instance.shieldRange, PlayerInfo.Instance.shieldRange);
 
-                //���浱ǰ���ܷ�Χ
+
                 PlayerPrefs.SetFloat("ShieldRange", PlayerInfo.Instance.shieldRange);
                 PlayerPrefs.Save();
                 break;
