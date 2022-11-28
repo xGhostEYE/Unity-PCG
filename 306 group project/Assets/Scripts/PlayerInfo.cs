@@ -65,15 +65,16 @@ public class PlayerInfo : MonoBehaviour
         {
             if (GameObject.Find("SkillTreePanel").transform.localScale==Vector3.zero)
             {
+                Time.timeScale = 0;
                 GameObject.Find("SkillTreePanel").transform.localScale = Vector3.one;
             }
             else if (GameObject.Find("SkillTreePanel").transform.localScale == Vector3.one)
             {
+                Time.timeScale = 1;
                 GameObject.Find("SkillTreePanel").transform.localScale = Vector3.zero;
             }
         }
 
-        shieldAnimator.SetFloat("ShieldSpeed", shieldSpeed);
 
     }
 

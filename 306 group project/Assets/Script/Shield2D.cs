@@ -8,25 +8,30 @@ public class Shield2D : MonoBehaviour
     public float minScale;
     public float maxScale;
 
-    public float timer = 0f;
+    public float shieldTimer = 0f;
 
     void Start()
     {
-        //shield shrink animation
-        timer = PlayerInfo.Instance.shieldSpeed;
-        maxScale = PlayerInfo.Instance.shieldRange;
-
-        Sequence sequence = DOTween.Sequence();
-        //add wanted animation into the queue
-        sequence.Append(transform.DOScale(new Vector3(maxScale, maxScale, maxScale), timer));//bigger scale
-        //sequence.AppendInterval(1);
-        sequence.Append(transform.DOScale(new Vector3(minScale, minScale, minScale), timer));//smaller scale                                                                              //这个队列循环播放
-        sequence.SetLoops(-1);
+        PlayerPrefs.DeleteAll();//reset info
     }
 
     void Update()
     {
-      
+        shieldTimer = PlayerInfo.Instance.shieldSpeed;
+        maxScale = PlayerInfo.Instance.shieldRange;
+
+        // shield animation
+        if (transform.localScale == new Vector3(minScale,minScale,minScale))
+        {
+            Debug.LogWarning("1");
+            transform.DOScale(new Vector3(maxScale, maxScale, maxScale), shieldTimer);//bigger shield
+        }
+        if (transform.localScale.x >= maxScale)
+        {
+            Debug.LogWarning("2");
+            transform.DOScale(new Vector3(minScale, minScale, minScale), shieldTimer);//smaller shield
+        }
+
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -56,4 +61,5 @@ public class Shield2D : MonoBehaviour
             Destroy(col.gameObject);
         }
     }
+
 }

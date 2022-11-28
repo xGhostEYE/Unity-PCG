@@ -11811,6 +11811,18 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 1.23
       objectReference: {fileID: 0}
+    - target: {fileID: 5359973500537605783, guid: 59ba1729e041b1946b41098b39e9132d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359973500537605783, guid: 59ba1729e041b1946b41098b39e9132d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359973500537605783, guid: 59ba1729e041b1946b41098b39e9132d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 5359973501679349151, guid: 59ba1729e041b1946b41098b39e9132d, type: 3}
       propertyPath: m_Size.x
       value: 0.42741796
