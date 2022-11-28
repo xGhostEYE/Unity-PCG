@@ -12,7 +12,8 @@ TagManager:
   - PortalEnd
   - Shield
   - Exit
-  
+  - wall
+  - boss
   layers:
   - Default
   - TransparentFX
