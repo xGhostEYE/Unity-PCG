@@ -414,15 +414,47 @@ PrefabInstance:
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: tree_prefab
       value: 
-      objectReference: {fileID: 225591607930445936, guid: c86d67ab12488ca499479da41827cb60, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: cliff_prefab
+      value: 
+      objectReference: {fileID: 2078194519269824561, guid: 888efa70dd5b1c545ad0b0bd8715c7cf, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: grass_prefab
       value: 
-      objectReference: {fileID: 5695719281033571502, guid: abfb08c9451b87a4f9919351ad7c8dd5, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: stone_prefab
       value: 
       objectReference: {fileID: 1187209558691136266, guid: 471e96548718ec44f8873680ec4973a5, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_1_prefab
+      value: 
+      objectReference: {fileID: 1526551659093680818, guid: 6598c3aa26e7bf6469f7da1ab0950242, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_2_prefab
+      value: 
+      objectReference: {fileID: 225591607930445936, guid: c86d67ab12488ca499479da41827cb60, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_3_prefab
+      value: 
+      objectReference: {fileID: 5502506337492605946, guid: 8c58a3bde41a32d458364722a9aafdd3, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_4_prefab
+      value: 
+      objectReference: {fileID: 3973760196444028981, guid: 4b03734eb123ea942b1aa84fdcd49501, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_5_prefab
+      value: 
+      objectReference: {fileID: 1590686041034358696, guid: 72d0bbc99015e964fa923cc414136aaa, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_8_prefab
+      value: 
+      objectReference: {fileID: 6103694656204070790, guid: bc23b950f0401064b869d05e3aa6060c, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_9_prefab
+      value: 
+      objectReference: {fileID: 4324560163162206603, guid: fa7069a327530a241a0d3bc4bcc4f8cf, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: fence_1_prefab
       value: 
@@ -436,13 +468,105 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8513665864897058026, guid: 86c57054fd1861f4186db5b1ca814b25, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: grass_1_prefab
+      value: 
+      objectReference: {fileID: 8145843532539638350, guid: 0240a4c2c39d97040af7e6621b648e68, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: grass_2_prefab
+      value: 
+      objectReference: {fileID: 3895803187957491776, guid: 19d0b4060eb8b1f4b8d3613595085b72, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: grass_3_prefab
+      value: 
+      objectReference: {fileID: 1068069282856392709, guid: 59094be76bc581740bfebac41ed7c865, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: grass_4_prefab
+      value: 
+      objectReference: {fileID: 687056727619878716, guid: 579c9ee68dffa6a4d9944b1672d84a94, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: grass_5_prefab
+      value: 
+      objectReference: {fileID: 2093640710845869154, guid: ecc855b30c5bad54ba70c580d8e068a3, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: grass_6_prefab
+      value: 
+      objectReference: {fileID: 2272534934356999447, guid: 9d7bce08f09653341bdbd512cc7424b5, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: grass_7_prefab
+      value: 
+      objectReference: {fileID: 7755918365829856482, guid: 47c8ec8e8541ce740ae8a9c7bec1c4af, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: grass_8_prefab
+      value: 
+      objectReference: {fileID: 5695719281033571502, guid: abfb08c9451b87a4f9919351ad7c8dd5, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: stone_1_prefab
+      value: 
+      objectReference: {fileID: 9190317282359492324, guid: 253d4c773b5d2c94bb08721f4cce017c, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: stone_2_prefab
+      value: 
+      objectReference: {fileID: 8349603767742036314, guid: 8a40aa32fa5c54f4ab9ab6729e175e2a, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: stone_3_prefab
+      value: 
+      objectReference: {fileID: 4164667788129547542, guid: 72b888377c406624e87172fe2c792b40, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: stone_4_prefab
+      value: 
+      objectReference: {fileID: 5822596305837597448, guid: 17b3b27af599113458c751a11c750e41, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: stone_6_prefab
+      value: 
+      objectReference: {fileID: 1187209558691136266, guid: 471e96548718ec44f8873680ec4973a5, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: stone_7_prefab
+      value: 
+      objectReference: {fileID: 7820556708603106132, guid: 8ce4cfc4aff95004ea0af6356b21a879, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: flower_1_prefab
+      value: 
+      objectReference: {fileID: 3758393664071247907, guid: a232acf30553a634c8d384d313ca8a95, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: flower_2_prefab
+      value: 
+      objectReference: {fileID: 627334839481595814, guid: 55a49e64b9ec4ad4882b45c1fc04e929, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: flower_3_prefab
+      value: 
+      objectReference: {fileID: 9084822146328747155, guid: eb4fbe8b573dc124c8aaa9cbb92594ef, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: flower_4_prefab
+      value: 
+      objectReference: {fileID: 3712024780801193490, guid: c683bc4eacaae774aa84af3ed209969b, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: flower_5_prefab
+      value: 
+      objectReference: {fileID: 7685120163480769046, guid: ab11a07acfafc6a4197847c2d005e00f, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: flower_6_prefab
+      value: 
+      objectReference: {fileID: 1530039914144749298, guid: 1f2ca29db5bf1c04fa991256054c9a3d, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: large_leaf_left
+      value: 
+      objectReference: {fileID: 187722, guid: 093ae41829b93904495a4758b1ec8c34, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: platform_prefab
       value: 
       objectReference: {fileID: 7439344766214185256, guid: 2a930e1ff6b268948ad3a45646db2b49, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: large_leaf_right
+      value: 
+      objectReference: {fileID: 187722, guid: 01631d9c2c00d294fa20e3ac7135bc8c, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: rock_head_prefab
       value: 
       objectReference: {fileID: 3052525548567199361, guid: 9b5ba68e5a1a95d4689d3779166661e5, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: large_vine_prefab
+      value: 
+      objectReference: {fileID: 6045462212198299123, guid: 659d815b0b5535245958c14758c2e50c, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: tree_trunk_1_prefab
       value: 
@@ -460,16 +584,81 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3153266219489458327, guid: 7301b03692afc3543a0c46bba21d6105, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: cliff_figures_prefab
+      value: 
+      objectReference: {fileID: 5843021290679268302, guid: 5e6ff199851f0fd4a91d79d7b231186a, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: platform_large_prefab
       value: 
-      objectReference: {fileID: 9066746157856169637, guid: 99331906807df7743adf60aa40fb7e57, type: 3}
+      objectReference: {fileID: 7439344766214185256, guid: 5514b0fca6ca9ec45b3929cef04b26ea, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: platform_prefab_moving
       value: 
       objectReference: {fileID: 7491743894915414133, guid: 3cbcfa052718e7a40b663ed53d165d2f, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: tree_6_prefabtree_7_prefab
+      value: 
+      objectReference: {fileID: 7147987097682280915, guid: 9c5bc91b7f727be45a02e9864719f894, type: 3}
     - target: {fileID: 2618503315832396302, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: m_Name
       value: Grid_manager (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+--- !u!1001 &2765636302327268734
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2765636301356591204, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765636301356591204, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765636301356591204, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 40.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765636301356591204, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765636301356591204, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765636301356591204, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765636301356591204, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765636301356591204, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765636301356591204, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765636301356591204, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765636301356591204, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765636301356591206, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
+      propertyPath: m_Name
+      value: vector-gayana-horizontal-seamless-tropical-rainforest-jungle-forest-background-illustration-139627704-transformed
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 060a4bcfcff99ac4b89a1dbb94ae88f1, type: 3}
