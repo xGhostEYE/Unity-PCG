@@ -25,7 +25,6 @@ public class BossBullet : MonoBehaviour
 	{
 		if (col.gameObject.name.Equals("PlayerTest"))
 		{
-			Debug.Log("Hit!");
 			Destroy(gameObject);
 		}
 	}

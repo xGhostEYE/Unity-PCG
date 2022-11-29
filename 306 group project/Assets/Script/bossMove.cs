@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class bossMove : MonoBehaviour
 {
-	[SerializeField]
-	Transform[] waypoints;
+	[SerializeField] Transform[] waypoints;
 
 	[SerializeField]
 	float moveSpeed = 2f;
