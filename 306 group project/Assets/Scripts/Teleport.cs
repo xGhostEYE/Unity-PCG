@@ -29,7 +29,7 @@ public class Teleport : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             Player = other.gameObject;
             StartCoroutine (teleportation());
-            GameManager.instance.NextLevel();
+            // GameManager.instance.NextLevel();
             portalSound.Play();
         }
     }
