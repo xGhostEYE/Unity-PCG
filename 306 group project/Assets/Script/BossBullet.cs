@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BossBullet : MonoBehaviour
 {
 	float moveSpeed = 7f;
 
 	Rigidbody2D rb;
 
-	Player target;
+	temporaryMovement target;
 	Vector2 moveDirection;
 
 	// Use this for initialization
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		target = GameObject.FindObjectOfType<Player>();
+		target = GameObject.FindObjectOfType<temporaryMovement>();
 		moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
 		rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
 		Destroy(gameObject, 3f);
@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.name.Equals("Player"))
+		if (col.gameObject.name.Equals("PlayerTest"))
 		{
 			Destroy(gameObject);
 		}
