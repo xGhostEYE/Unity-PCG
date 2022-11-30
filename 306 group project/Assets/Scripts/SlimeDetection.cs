@@ -34,8 +34,7 @@ public class SlimeDetection : MonoBehaviour
 
     void enemyDeathHandler() {
         // activate speech bubble ccanvas
-        // give player skill points
-        PlayerInfo.Instance.skillNum += 1;
+        // give player randomized health points
         // melt away and say bye
         // destroy object
         Destroy(this.gameObject, 2.0f);
