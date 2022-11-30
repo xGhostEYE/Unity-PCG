@@ -90,7 +90,7 @@ public class Grid_Manager : MonoBehaviour
         // place platforms
         for (int y = 6; y < grid_height; y++)
         {
-            Debug.Log(y);
+            //Debug.Log(y);
             if (y >= grid_height - 5)
             {
                 break;
