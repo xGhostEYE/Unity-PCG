@@ -54,6 +54,14 @@ public class PlayerControl : MonoBehaviour
             rg.AddForce(Vector3.up * PlayerInfo.Instance.jumpSpeed);
             // rg.AddForce(Vector2.up * PlayerInfo.Instance.jumpSpeed);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && jumpInt != 0)
+        {
+            jumpSound.Play();
+            playerAnima.Play("PlayerJump");
+            jumpInt -= 1;
+            rg.AddForce(Vector3.up * PlayerInfo.Instance.jumpSpeed);
+        }
        
     }
 
