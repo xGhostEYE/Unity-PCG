@@ -6,7 +6,7 @@ public class BossHealth : MonoBehaviour
 {
     public float Hitpoints;
 
-    public float MaxHitPoints = 5;
+    public float MaxHitPoints = 100;
     public healthBarBehaviour HealthBar;
 
     private void Start()
@@ -22,6 +22,13 @@ public class BossHealth : MonoBehaviour
         {
             GetComponent<Animator>().Play("Die");
             Destroy(gameObject);
+        }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Shield")
+        {
+            Hitpoints -= 10;
         }
     }
 }

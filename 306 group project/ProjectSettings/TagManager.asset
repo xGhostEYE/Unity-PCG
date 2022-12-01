@@ -12,7 +12,10 @@ TagManager:
   - PortalEnd
   - Shield
   - Exit
-  
+  - wall
+  - boss
+  - BossRange
+  - BossMelee
   layers:
   - Default
   - TransparentFX
