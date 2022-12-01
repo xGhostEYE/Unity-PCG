@@ -74,6 +74,16 @@ public class PlayerControl : MonoBehaviour
             PlayerInfo.Instance.hp -= 5;
         }
 
+        if (collision.gameObject.tag == "BossMelee" && PlayerInfo.Instance.hp > 0)
+        {
+            PlayerInfo.Instance.hp -= 20;
+        }
+
+        if (collision.gameObject.tag == "BoseRange" && PlayerInfo.Instance.hp > 0)
+        {
+            PlayerInfo.Instance.hp -= 10;
+        }
+
         if (collision.gameObject.tag == "Exit")
         {
             GameManager.instance.NextLevel();
