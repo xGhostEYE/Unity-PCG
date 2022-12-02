@@ -91,6 +91,7 @@ public class Grid_Manager : MonoBehaviour
         
         // todo: spawning playuer not working because something with camera
         // Instantiate(player_prefab, new Vector3(3, 1), Quaternion.identity);
+        player_prefab.transform.position = new Vector3(3, 3);
         // place walls
         for (int y = 0; y < grid_height; y++)
         {
@@ -111,7 +112,7 @@ public class Grid_Manager : MonoBehaviour
             }
         }
         // place platforms UnityEngine.Random.Range(6, 9)
-        for (int y = 7; y < grid_height - 10; y+= 6)
+        for (int y = 7; y < grid_height - 10; y+= 9)
         {
 
             int random_chance_spawn = UnityEngine.Random.Range(1, 3);
