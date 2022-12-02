@@ -11,7 +11,7 @@ public class Grid_Manager : MonoBehaviour
     [SerializeField] private Tile background_prefab, wall_prefab, floor_prefab, room_background_prefab;
 
     [SerializeField] private GameObject enemy_flying, enemy_walking, boss_portal_prefab,
-    enemy_wall_crawl, slime_prefab, player, exit_prefab, platform_prefab, 
+    enemy_wall_crawl, slime_prefab, player_prefab, exit_prefab, platform_prefab, 
     platform_large_prefab, platform_prefab_moving, fence_1_prefab, fence_2_prefab, 
     fence_3_prefab, rock_head_prefab, sign_prefab, tree_trunk_1_prefab, tree_trunk_3_prefab, 
     tree_trunk_4_prefab, stone_1_prefab,stone_2_prefab,stone_3_prefab,stone_4_prefab,stone_6_prefab,stone_7_prefab,
@@ -73,11 +73,6 @@ public class Grid_Manager : MonoBehaviour
             {
                 if (y == 0)
                 {
-                    if (x == (grid_width / 2) - 10)
-                    {
-                        //Instantiate(player, new Vector3(x, y+3), Quaternion.identity);
-                        player.transform.position = new Vector3(x, y + 3);
-                    }
                     var floor = Instantiate(floor_prefab, new Vector3(x, y), Quaternion.identity);
                     floor.name = $"floor_Tile {x} {y}";
                     floor_tiles[new Vector2(x, y)] = floor;
@@ -91,8 +86,11 @@ public class Grid_Manager : MonoBehaviour
                 spawnedTile.name = $"Tile {x} {y}";
                 background_tiles[new Vector2(x, y)] = spawnedTile;
             }
+            
         }
-       
+        
+        // todo: spawning playuer not working because something with camera
+        // Instantiate(player_prefab, new Vector3(3, 1), Quaternion.identity);
         // place walls
         for (int y = 0; y < grid_height; y++)
         {
@@ -352,10 +350,6 @@ public class Grid_Manager : MonoBehaviour
                 {
                     if (y == 0)
                     {
-                        if (x == (grid_width / 2) - 10)
-                        {
-                            Instantiate(player, new Vector3(x, y), Quaternion.identity);
-                        }
                         var floor = Instantiate(floor_prefab, new Vector3(x + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
                         floor.name = $"floor_Tile {x} {y}";
                     }
