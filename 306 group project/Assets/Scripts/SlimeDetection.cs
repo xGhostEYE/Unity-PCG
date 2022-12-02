@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
 public class SlimeDetection : MonoBehaviour
 {
     private GameObject nearestEnemy;
@@ -10,13 +15,15 @@ public class SlimeDetection : MonoBehaviour
     [SerializeField] private AudioSource thankyouSound;
     private float oldDistance = 9999;
     private bool check = true;
+    [SerializeField] private AudioSource rewardSound;
 
     [SerializeField] private float typingSpeed = 0.05f;
-
+    [SerializeField] private Animator slimeSpeechAnimator;
     [SerializeField] private TextMeshProUGUI slimeText;
 
     [SerializeField] private string[] slimeSentences;
     private int slimeIndex;
+    private float speechBubbleAnimationDelay = 0.6f;
 
 
     // Start is called before the first frame update
@@ -43,19 +50,51 @@ public class SlimeDetection : MonoBehaviour
         //    check = false;
         //    enemyDeathHandler();
         //}
+
+        // if user presses "enter", progress through dialogue
+        //if (Input.GetKeyDown(KeyCode.Return) & check == false) {
+        //    if (slimeIndex < slimeSentences.Length - 1) {
+        //        slimeIndex++;
+        //        slimeText.text = string.Empty;
+        //        StartCoroutine(slimeDialouge);
+        //    }
+        //   else {
+        //
+        //    // melt away and say bye
+        //    // destroy object
+        //        Destroy(this.gameObject, 3.0f);
+        //    }
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Return)) {
+            if (slimeIndex < slimeSentences.Length - 1) {
+                slimeIndex++;
+                slimeText.text = string.Empty;
+                StartCoroutine(slimeDialouge());
+            }
+            else {
+                // melt away and say bye
+                slimeSpeechAnimator.SetTrigger("Close");
+                Destroy(this.gameObject, 2.0f);
+            }
+        }
     }
 
     void enemyDeathHandler() {
-        // activate speech bubble ccanvas
         StartCoroutine(slimeDialouge());
+        float randomNumber = Random.Range(0, 100);
+        PlayerInfo.Instance.hp += randomNumber;
         // give player randomized health points
-        // melt away and say bye
-        // destroy object
-        Destroy(this.gameObject, 2.0f);
+        rewardSound.Play();
+
     }
 
     private IEnumerator slimeDialouge()
     {
+        // activate speech bubble ccanvas
+        slimeSpeechAnimator.SetTrigger("Open");
+        yield return new WaitForSeconds(speechBubbleAnimationDelay);
+
         foreach (char letter in slimeSentences[slimeIndex].ToCharArray())
         {
             slimeText.text += letter;
