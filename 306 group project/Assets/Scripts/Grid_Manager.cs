@@ -201,7 +201,7 @@ public class Grid_Manager : MonoBehaviour
             }
             // spawn portal
             var portal = Instantiate(PortalIn, new Vector3(3, y+2), Quaternion.identity);
-            portal.tag = "portal_start_1";
+            portal.tag = "portal_start_0";
         }
         if(where_to_spawn == 2){
             // spawn floor on right side
@@ -213,7 +213,7 @@ public class Grid_Manager : MonoBehaviour
             }
             // spawn portal
             var portal = Instantiate(PortalIn, new Vector3(grid_width-3, y+2), Quaternion.identity);
-            portal.tag = "portal_start_2";
+            portal.tag = "portal_start_1";
         }
         if(where_to_spawn == 3){
             // spawn floor on both sides with hole in middle (j is x)
@@ -230,7 +230,7 @@ public class Grid_Manager : MonoBehaviour
             }
             // spawn portal
             var portal = Instantiate(PortalIn, new Vector3(grid_width-3, y+2), Quaternion.identity);
-            portal.tag = "portal_boss_start";
+            portal.tag = "portal_start_2";
         }
     }
 
@@ -358,7 +358,8 @@ public class Grid_Manager : MonoBehaviour
                     secret_room[new Vector2(x, y)] = spawnedTile;
                     if (x == 0 && y == 0)
                     {
-                        Instantiate(PortalOut, new Vector3(x + number_rooms[i] + 4, y + number_rooms[i] + 2), Quaternion.identity);
+                        var portal = Instantiate(PortalOut, new Vector3(x + number_rooms[i] + 4, y + number_rooms[i] + 2), Quaternion.identity);
+                        portal.tag = "portal_end_"+i.ToString();
                         Instantiate(enemy_walking, new Vector3(grid_width + number_rooms[i], y + number_rooms[i] + 2), Quaternion.identity);
                         Instantiate(egg, new Vector3(grid_width + number_rooms[i] - 1, y + number_rooms[i]+1), Quaternion.identity);
                     }
