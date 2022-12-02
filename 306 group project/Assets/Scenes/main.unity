@@ -10090,6 +10090,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
   m_PrefabInstance: {fileID: 1723652983}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1836134306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6462920967277503331, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
+  m_PrefabInstance: {fileID: 1723652983}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874285864
 GameObject:
   m_ObjectHideFlags: 0
@@ -10372,7 +10383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Riley
   hp: 100
-  hpBar: {fileID: 0}
+  hpBar: {fileID: 1836134306}
   moveSpeed: 10
   jumpSpeed: 550
   doubleJumpSpeed: 250
