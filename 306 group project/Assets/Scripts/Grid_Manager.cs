@@ -10,12 +10,12 @@ public class Grid_Manager : MonoBehaviour
 
     [SerializeField] private Tile background_prefab, wall_prefab, floor_prefab, room_background_prefab;
 
-    [SerializeField] private GameObject enemy_flying, enemy_walking, 
-    enemy_wall_crawl, portal_prefab, slime_prefab, player, exit_prefab, platform_prefab, 
+    [SerializeField] private GameObject enemy_flying, enemy_walking, boss_portal_prefab,
+    enemy_wall_crawl, slime_prefab, player, exit_prefab, platform_prefab, 
     platform_large_prefab, platform_prefab_moving, fence_1_prefab, fence_2_prefab, 
     fence_3_prefab, rock_head_prefab, sign_prefab, tree_trunk_1_prefab, tree_trunk_3_prefab, 
     tree_trunk_4_prefab, stone_1_prefab,stone_2_prefab,stone_3_prefab,stone_4_prefab,stone_6_prefab,stone_7_prefab,
-    grass_1_prefab, grass_2_prefab, grass_3_prefab,
+    grass_1_prefab, grass_2_prefab, grass_3_prefab, boss_prefab,
     grass_4_prefab, grass_5_prefab, grass_6_prefab, grass_7_prefab, grass_8_prefab, tree_1_prefab,
     tree_2_prefab,tree_3_prefab,tree_4_prefab,tree_5_prefab,tree_6_prefabtree_7_prefab,tree_8_prefab,tree_9_prefab,
      flower_1_prefab,flower_2_prefab,flower_3_prefab,flower_4_prefab, flower_5_prefab,flower_6_prefab,
@@ -40,22 +40,17 @@ public class Grid_Manager : MonoBehaviour
 
     void GenerateGrid()
     {
-        grid_width = UnityEngine.Random.Range(40, 60);
-        grid_height = UnityEngine.Random.Range(70, 100);
+        grid_width = UnityEngine.Random.Range(40, 50);
+        grid_height = UnityEngine.Random.Range(70, 90);
         int platform_size;
         Dictionary<Vector2, Tile> background_tiles = new Dictionary<Vector2, Tile>();
         Dictionary<Vector2, Tile> floor_tiles = new Dictionary<Vector2, Tile>();
         Dictionary<Vector2, Tile> platform_tiles = new Dictionary<Vector2, Tile>();
-        int numer_of_portals = 0;
-        bool alread_spawned_left = false;
-        bool alread_spawned_right = false;
-        bool alread_spawned_middle = false;
+
         bool alread_spawned_exit = false;
         bool spawned_first_floor = false;
         bool spawned_second_floor = false;
         bool spawned_third_floor = false;
-        bool spawnedPortalIn = false;
-        bool spawnedPortalOut = false;
         int chance_to_spawn_exit = UnityEngine.Random.Range(1, 3);
         acidSpawner.transform.position = new Vector3(0, -5);
         acidSpawner.GetComponent<AcidSpawner>().SpawnAcid();
@@ -109,30 +104,22 @@ public class Grid_Manager : MonoBehaviour
             if (chance_to_spawn_exit == 1 && alread_spawned_exit == false && y == grid_height - 6)
             {
                 Debug.Log("left");
-                Instantiate(exit_prefab, new Vector3(2, y+1), Quaternion.identity);
                 generate_floor_exit(y,grid_height,grid_width,chance_to_spawn_exit);
-                if (spawnedPortalOut == false) PortalOut.transform.position = new Vector3(1, y);
-                alread_spawned_exit = true;
             }
             if (chance_to_spawn_exit == 2 && alread_spawned_exit == false && y == grid_height - 6)
             {
                 Debug.Log("right");
-                Instantiate(exit_prefab, new Vector3(grid_width - 2, y+1), Quaternion.identity);
                 generate_floor_exit(y,grid_height,grid_width,chance_to_spawn_exit);
-                if (spawnedPortalOut == false) PortalOut.transform.position = new Vector3(1, y);
-                alread_spawned_exit = true;
             }
         }
-        // place platforms
-        for (int y = 6; y < grid_height - 15; y+=UnityEngine.Random.Range(6, 9))
+        // place platforms UnityEngine.Random.Range(6, 9)
+        for (int y = 7; y < grid_height - 10; y+= 6)
         {
 
-            // place platforms on left side
             int random_chance_spawn = UnityEngine.Random.Range(1, 3);
             int platform_length_left = UnityEngine.Random.Range(4, 7);
             platform_size = UnityEngine.Random.Range(1, 4);
             var floor_range = 6;
-            var platform_range = 3;
             if(Enumerable.Range((grid_height/3)-floor_range,(grid_height/3)+floor_range).Contains(y) && spawned_first_floor == false){
                 generate_floor((grid_height/3),grid_height,grid_width);
                 y+=3;
@@ -148,79 +135,52 @@ public class Grid_Manager : MonoBehaviour
                 y+=3;
                 spawned_third_floor = true;
             }
-            if(Enumerable.Range((grid_height/3)-platform_range,(grid_height/3)+platform_range).Contains(y) == false || Enumerable.Range((grid_height-(grid_height/2))-platform_range,(grid_height-(grid_height/2)+platform_range)).Contains(y) == false || Enumerable.Range((grid_height-(grid_height/3))-platform_range,(grid_height-(grid_height/3)+platform_range)).Contains(y) == false){
-                generate_platform(platform_length_left, y, platform_size);
-                // spawn enemy
-                if (random_chance_spawn == 2)
-                {
-                    generate_enemies(platform_length_left, y);
-                }
-                // spawn portal
-                if (random_chance_spawn == 1 && numer_of_portals < 3 && alread_spawned_left == false)
-                {
-                    if (y >= grid_height / 2)
-                    {
-                        Instantiate(portal_prefab, new Vector3(platform_length_left, y + 1), Quaternion.identity);
-                        
-                        alread_spawned_left = true;
-                    }
-                }
-
-                // place platforms on right side
-                random_chance_spawn = UnityEngine.Random.Range(1, 3);
-                int platform_length_right = UnityEngine.Random.Range(4, 7);
-                platform_size = UnityEngine.Random.Range(1, 4);
-                generate_platform(grid_width - platform_length_right, y, platform_size);
-                // place egg
-                // if (UnityEngine.Random.Range(0.0f, 1.0f) < 0.2)
-                // {
-                //     Instantiate(egg, new Vector3(grid_width - platform_length_right, y), Quaternion.identity);
-                // }
-
-                // spawn enemy
-                if (random_chance_spawn == 2)
-                {
-                    generate_enemies(grid_width - platform_length_right,y);
-                }
-                // spawn portal
-                if (random_chance_spawn == 1 && numer_of_portals < 3 && alread_spawned_right == false)
-                {
-                    if (y >= grid_height / 3)
-                    {
-                        Instantiate(portal_prefab, new Vector3(grid_width - platform_length_right, y + 1), Quaternion.identity);
-                        alread_spawned_right = true;
-                    }
-                }
-
-                // place platforms on middle
-                random_chance_spawn = UnityEngine.Random.Range(1, 3);
-                int platform_length_middle = UnityEngine.Random.Range(4, 7);
-                // should make it randomly go left or right in the middle
-                platform_size = UnityEngine.Random.Range(1, 4);
-                generate_platform(grid_width - (grid_width / 2),y,platform_size);
-                // spawn enemy
-                if (random_chance_spawn == 2)
-                {
-                    generate_enemies(grid_width - (grid_width / 2),y);
-                }
-                // spawn portal
-                if (random_chance_spawn == 1 && numer_of_portals < 3 && alread_spawned_middle == false)
-                {
-                    if (y >= grid_height / 4)
-                    {
-                        Instantiate(PortalIn, new Vector3(grid_width - (grid_width / 2), y + 1), Quaternion.identity);
-                        alread_spawned_middle = true;
-                    }
-                }
-
-                // place platforms in between middle and sides
-                // should make it randomly go left or right in the middle
-                var right_middle_platform = Instantiate(platform_prefab, new Vector3(grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4)-4, y - 3), Quaternion.identity);
-                right_middle_platform.name = $"right_middle_platform_Tile {grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4)} {y}";
-                // should make it randomly go left or right in the middle
-                var left_middle_platform = Instantiate(platform_prefab, new Vector3((grid_width / 2) - (grid_width / 4) + UnityEngine.Random.Range(2, 4), y - 3), Quaternion.identity);
-                left_middle_platform.name = $"left_middle_platform_Tile {grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4)} {y}";
+            // if(Enumerable.Range((grid_height/3)-platform_range,(grid_height/3)+platform_range).Contains(y) == false || Enumerable.Range((grid_height-(grid_height/2))-platform_range,(grid_height-(grid_height/2)+platform_range)).Contains(y) == false || Enumerable.Range((grid_height-(grid_height/3))-platform_range,(grid_height-(grid_height/3)+platform_range)).Contains(y) == false){
+                
+            // place platform on left side
+            generate_platform(platform_length_left, y, platform_size);
+            // spawn enemy
+            if (random_chance_spawn == 2)
+            {
+                generate_enemies(platform_length_left, y);
             }
+
+
+            // place platforms on right side
+            random_chance_spawn = UnityEngine.Random.Range(1, 3);
+            int platform_length_right = UnityEngine.Random.Range(4, 7);
+            platform_size = UnityEngine.Random.Range(1, 4);
+            generate_platform(grid_width - platform_length_right, y, platform_size);
+
+
+            // spawn enemy
+            if (random_chance_spawn == 2)
+            {
+                generate_enemies(grid_width - platform_length_right,y);
+            }
+
+
+            // place platforms on middle
+            random_chance_spawn = UnityEngine.Random.Range(1, 3);
+            int platform_length_middle = UnityEngine.Random.Range(4, 7);
+            // should make it randomly go left or right in the middle
+            platform_size = UnityEngine.Random.Range(1, 4);
+            generate_platform(grid_width - (grid_width / 2),y,platform_size);
+            // spawn enemy
+            if (random_chance_spawn == 2)
+            {
+                generate_enemies(grid_width - (grid_width / 2),y);
+            }
+
+
+            // place platforms in between middle and sides
+            // should make it randomly go left or right in the middle
+            var right_middle_platform = Instantiate(platform_prefab, new Vector3(grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4)-4, y + 3), Quaternion.identity);
+            right_middle_platform.name = $"right_middle_platform_Tile {grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4)} {y}";
+            // should make it randomly go left or right in the middle
+            var left_middle_platform = Instantiate(platform_prefab, new Vector3((grid_width / 2) - (grid_width / 4) + UnityEngine.Random.Range(2, 4), y + 3), Quaternion.identity);
+            left_middle_platform.name = $"left_middle_platform_Tile {grid_width - (grid_width / 4) + UnityEngine.Random.Range(2, 4)} {y}";
+            // }
         }
 
         List<Dictionary<Vector2, Tile>> secret_rooms = GenerateRooms();
@@ -235,64 +195,79 @@ public class Grid_Manager : MonoBehaviour
         Debug.Log(where_to_spawn);
         if(where_to_spawn == 1){
             // spawn floor on left side
-            for (int x = 3; x < (grid_width/2); x+=4){
+            int x;
+            for (x = 3; x < (grid_width/2); x+=4){
                 Instantiate(cliff_prefab, new Vector3(x, y-3), Quaternion.identity);
                 generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
                 ,list_of_tree_trunks,list_of_trees);
             }
+            // spawn portal
+            var portal = Instantiate(PortalIn, new Vector3(3, y+2), Quaternion.identity);
+            portal.tag = "portal_start_1";
         }
         if(where_to_spawn == 2){
             // spawn floor on right side
-            for (int x = grid_width/2; x < grid_width; x+=4){
+            int x;
+            for (x = grid_width/2; x < grid_width; x+=4){
                 Instantiate(cliff_prefab, new Vector3(x, y-3), Quaternion.identity);
                 generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
                 ,list_of_tree_trunks,list_of_trees);
             }
+            // spawn portal
+            var portal = Instantiate(PortalIn, new Vector3(grid_width-3, y+2), Quaternion.identity);
+            portal.tag = "portal_start_2";
         }
         if(where_to_spawn == 3){
-            // spawn floor on both sides with hole in middle
-            for (int x = 3; x < (grid_width/2)-3; x+=4){
+            // spawn floor on both sides with hole in middle (j is x)
+            for (int j = 3; j < (grid_width/2)-3; j+=4){
+                Instantiate(cliff_prefab, new Vector3(j, y-3), Quaternion.identity);
+                generate_assets(j,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
+                ,list_of_tree_trunks,list_of_trees);
+            }
+            int x;
+            for (x = (grid_width/2)+3; x < grid_width; x+=4){
                 Instantiate(cliff_prefab, new Vector3(x, y-3), Quaternion.identity);
                 generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
                 ,list_of_tree_trunks,list_of_trees);
             }
-            for (int x = (grid_width/2)+3; x < grid_width; x+=4){
-                Instantiate(cliff_prefab, new Vector3(x, y-3), Quaternion.identity);
-                generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
-                ,list_of_tree_trunks,list_of_trees);
-            }
+            // spawn portal
+            var portal = Instantiate(PortalIn, new Vector3(grid_width-3, y+2), Quaternion.identity);
+            portal.tag = "portal_boss_start";
         }
     }
 
     private void generate_floor_exit(int y, int grid_height, int grid_width, int chance_to_spawn_exit){
         if(chance_to_spawn_exit == 1){
             
-            for (int x = 0; x < grid_width-8; x+=4){
+            for (int x = 0; x < grid_width-12; x+=4){
                 generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
                 ,list_of_tree_trunks,list_of_trees);
                 if(x == 0){
                     int i;
-                    for (i = 0; i < grid_height-6; i+=4){
+                    for (i = 0; i < grid_height-3; i+=4){
                         Instantiate(large_vine_prefab, new Vector3(grid_width-2, i), Quaternion.identity);
                     }
-                    Instantiate(large_leaf_left, new Vector3(grid_width-1, i-5), Quaternion.identity);
+                    Instantiate(large_leaf_left, new Vector3(grid_width-1, i-7), Quaternion.identity);
                 }
                 Instantiate(cliff_prefab, new Vector3(x+2, y-3), Quaternion.identity);
             }
+            Instantiate(exit_prefab, new Vector3(2, grid_height-3), Quaternion.identity);
+            
         }
         if(chance_to_spawn_exit == 2){
             for (int x = 8; x < grid_width-1; x+=3){
                 generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
                 ,list_of_tree_trunks,list_of_trees);
-                if(x == 8){
+                if(x == 12){
                     int i;
                     for (i = 0; i < grid_height-6; i+=4){
                         Instantiate(large_vine_prefab, new Vector3(3, i), Quaternion.identity);
                     }
-                    Instantiate(large_leaf_right, new Vector3(4, i-5), Quaternion.identity);
+                    Instantiate(large_leaf_right, new Vector3(4, i-7), Quaternion.identity);
                 }
                 Instantiate(cliff_prefab, new Vector3(x+2, y-3), Quaternion.identity);
             }
+            Instantiate(exit_prefab, new Vector3(grid_width-2, grid_height-3), Quaternion.identity);
         }
     }
 

@@ -394,15 +394,19 @@ PrefabInstance:
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: PortalIn
       value: 
-      objectReference: {fileID: 189426, guid: 3cab1cb73de2ec04182d83ff7e65067f, type: 3}
+      objectReference: {fileID: 5757618758660398637, guid: 06656bad37620aa41b35bdcc0d2160ae, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: PortalOut
       value: 
-      objectReference: {fileID: 189426, guid: 3cab1cb73de2ec04182d83ff7e65067f, type: 3}
+      objectReference: {fileID: 9101105906592181733, guid: fde00bd8d74548e41af4a2da45bc1c88, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: acidSpawner
       value: 
       objectReference: {fileID: 2938427554870074575, guid: 9b927a5d9db50fa4aa521fc6d09a00b0, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: boss_prefab
+      value: 
+      objectReference: {fileID: 7781353537175014764, guid: b1b0f584910ced84888bde6336932b14, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: exit_prefab
       value: 
@@ -567,6 +571,10 @@ PrefabInstance:
       propertyPath: large_vine_prefab
       value: 
       objectReference: {fileID: 6045462212198299123, guid: 659d815b0b5535245958c14758c2e50c, type: 3}
+    - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
+      propertyPath: boss_portal_prefab
+      value: 
+      objectReference: {fileID: 7781353537175014764, guid: b1b0f584910ced84888bde6336932b14, type: 3}
     - target: {fileID: 2618503315832396301, guid: b60af65d60dfcd74790f12e5ab369c8c, type: 3}
       propertyPath: tree_trunk_1_prefab
       value: 
