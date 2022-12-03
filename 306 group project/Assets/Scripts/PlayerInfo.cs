@@ -97,5 +97,10 @@ public class PlayerInfo : MonoBehaviour
             PlayerInfo.Instance.skillNum += 1;
         }
     }
+    public void KillPlayer(){
+        if (hp <= 0 ){
+            transform.GetComponent<PlayerControl>().Kill();
+        }
+    }
 
 }
