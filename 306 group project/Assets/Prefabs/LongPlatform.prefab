@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1954613836736711484}
   - component: {fileID: 1649548512770777372}
   - component: {fileID: 1702456209511420155}
+  - component: {fileID: 4959932964728725680}
   m_Layer: 0
-  m_Name: cliffleft1
+  m_Name: LongPlatform
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,6 +113,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.08, y: 0.79}
   m_EdgeRadius: 0
+--- !u!114 &4959932964728725680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078194519269824561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac18182ea83d63f44a13695aa1e3515f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3379619062460843863
 GameObject:
   m_ObjectHideFlags: 0
