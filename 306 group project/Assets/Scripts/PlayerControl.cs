@@ -54,6 +54,14 @@ public class PlayerControl : MonoBehaviour
             rg.AddForce(Vector3.up * PlayerInfo.Instance.jumpSpeed);
             // rg.AddForce(Vector2.up * PlayerInfo.Instance.jumpSpeed);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && jumpInt != 0)
+        {
+            jumpSound.Play();
+            playerAnima.Play("PlayerJump");
+            jumpInt -= 1;
+            rg.AddForce(Vector3.up * PlayerInfo.Instance.jumpSpeed);
+        }
        
     }
 
@@ -64,6 +72,24 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.tag=="Ground" || collision.gameObject.tag=="ground")
         {
             jumpInt = 2;
+        }
+        if (collision.gameObject.tag == "Enemy" && PlayerInfo.Instance.hp > 0)
+        {
+            PlayerInfo.Instance.hp -= 20;
+        }
+        if (collision.gameObject.tag == "EnemyBullet" && PlayerInfo.Instance.hp > 0)
+        {
+            PlayerInfo.Instance.hp -= 5;
+        }
+
+        if (collision.gameObject.tag == "BossMelee" && PlayerInfo.Instance.hp > 0)
+        {
+            PlayerInfo.Instance.hp -= 20;
+        }
+
+        if (collision.gameObject.tag == "BoseRange" && PlayerInfo.Instance.hp > 0)
+        {
+            PlayerInfo.Instance.hp -= 10;
         }
 
         if (collision.gameObject.tag == "Exit")
