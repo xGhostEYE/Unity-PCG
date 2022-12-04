@@ -61,6 +61,10 @@ public class Shield2D : MonoBehaviour
         {
             Destroy(col.gameObject);
         }
+        if (col.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+        {
+            enemyComponent.TakeDamage(1);
+        }
     }
 
 }

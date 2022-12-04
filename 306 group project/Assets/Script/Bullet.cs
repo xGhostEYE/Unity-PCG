@@ -21,11 +21,8 @@ public class Bullet : MonoBehaviour
 		Destroy(gameObject, 3f);
 	}
 
-	void OnTriggerEnter2D(Collider2D col)
-	{
-		if (col.gameObject.name.Equals("Player"))
-		{
-			Destroy(gameObject);
-		}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+		Destroy(gameObject);
 	}
 }
