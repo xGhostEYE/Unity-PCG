@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5561985228782702875}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1000061, y: 6.590027, z: 0}
+  m_LocalPosition: {x: -0.09999943, y: 6.5899997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79,8 +79,6 @@ GameObject:
   - component: {fileID: 5561985228870024600}
   - component: {fileID: 5561985228870024601}
   - component: {fileID: 5561985228870024597}
-  - component: {fileID: 6816261348411539802}
-  - component: {fileID: 1570336929400620442}
   m_Layer: 0
   m_Name: CrawlingEnemy
   m_TagString: Untagged
@@ -210,7 +208,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5561985228870024606}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58033cde604380a4a82af65f15f0ed0c, type: 3}
   m_Name: 
@@ -220,37 +218,6 @@ MonoBehaviour:
   - {fileID: 5561985229444326629}
   - {fileID: 5561985228914203418}
   moveSpeed: 2
---- !u!114 &6816261348411539802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5561985228870024606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca4f21d2c17a28c4eaf93781c3ff81f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 5561985228782702874}
-  - {fileID: 5561985229444326629}
-  - {fileID: 5561985228914203418}
-  moveSpeed: 2
---- !u!114 &1570336929400620442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5561985228870024606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ad621eb7b8b4e547826571f4141d9aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxhealth: 100
 --- !u!1 &5561985228914203419
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5561985229444326634}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.020004272, y: 3.4699707, z: 0}
+  m_LocalPosition: {x: -0.14999962, y: 0.4799999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
