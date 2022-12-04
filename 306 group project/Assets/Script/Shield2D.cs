@@ -52,10 +52,7 @@ public class Shield2D : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("2D Collision!");
-        if (col.gameObject.tag == "Enemy")
-        {
-            Destroy(col.gameObject);
-        }
+
 
         if (col.gameObject.tag == "EnemyBullet")
         {
