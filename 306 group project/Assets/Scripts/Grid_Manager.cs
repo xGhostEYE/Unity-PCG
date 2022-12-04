@@ -10,7 +10,7 @@ public class Grid_Manager : MonoBehaviour
 
     [SerializeField] private Tile background_prefab, wall_prefab, floor_prefab, room_background_prefab;
 
-    [SerializeField] private GameObject portal_target_prefab,enemy_flying, enemy_walking, boss_portal_prefab,
+    [SerializeField] private GameObject enemy_flying, enemy_walking, boss_portal_prefab,
     enemy_wall_crawl, slime_prefab, player_prefab, exit_prefab, platform_prefab, 
     platform_large_prefab, platform_prefab_moving, fence_1_prefab, fence_2_prefab, 
     fence_3_prefab, rock_head_prefab, sign_prefab, tree_trunk_1_prefab, tree_trunk_3_prefab, 
@@ -111,8 +111,8 @@ public class Grid_Manager : MonoBehaviour
                 generate_floor_exit(y,grid_height,grid_width,chance_to_spawn_exit);
             }
         }
-        // place platforms 
-        for (int y = 7; y < grid_height - 10; y+= UnityEngine.Random.Range(6, 9))
+        // place platforms UnityEngine.Random.Range(6, 9)
+        for (int y = 7; y < grid_height - 10; y+= 9)
         {
 
             int random_chance_spawn = UnityEngine.Random.Range(1, 3);
@@ -203,8 +203,6 @@ public class Grid_Manager : MonoBehaviour
             // spawn portal
             var portal = Instantiate(PortalIn, new Vector3(3, y+2), Quaternion.identity);
             portal.tag = "portal_start_0";
-            var portal_target = Instantiate(portal_target_prefab, new Vector3(7, y+2), Quaternion.identity);
-            portal_target.tag = "portal_target_0";
         }
         if(where_to_spawn == 2){
             // spawn floor on right side
@@ -217,8 +215,6 @@ public class Grid_Manager : MonoBehaviour
             // spawn portal
             var portal = Instantiate(PortalIn, new Vector3(grid_width-3, y+2), Quaternion.identity);
             portal.tag = "portal_start_1";
-            var portal_target = Instantiate(portal_target_prefab, new Vector3(grid_width-7, y+2), Quaternion.identity);
-            portal_target.tag = "portal_target_1";
         }
         if(where_to_spawn == 3){
             // spawn floor on both sides with hole in middle (j is x)
@@ -228,7 +224,7 @@ public class Grid_Manager : MonoBehaviour
                 ,list_of_tree_trunks,list_of_trees);
             }
             int x;
-            for (x = (grid_width/2)+4; x < grid_width; x+=4){
+            for (x = (grid_width/2)+3; x < grid_width; x+=4){
                 Instantiate(cliff_prefab, new Vector3(x, y-3), Quaternion.identity);
                 generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
                 ,list_of_tree_trunks,list_of_trees);
@@ -236,8 +232,6 @@ public class Grid_Manager : MonoBehaviour
             // spawn portal
             var portal = Instantiate(PortalIn, new Vector3(grid_width-3, y+2), Quaternion.identity);
             portal.tag = "portal_start_2";
-            var portal_target = Instantiate(portal_target_prefab, new Vector3(grid_width-7, y+2), Quaternion.identity);
-            portal_target.tag = "portal_target_2";
         }
     }
 
@@ -311,10 +305,10 @@ public class Grid_Manager : MonoBehaviour
     }
 
     private void generate_platform(int x, int y, int size){
-        // if (size == 1)
-        // {
-        //     Instantiate(platform_large_prefab, new Vector3(x, y), Quaternion.identity);
-        // }
+        if (size == 1)
+        {
+            Instantiate(platform_large_prefab, new Vector3(x, y), Quaternion.identity);
+        }
         if (size == 2)
         {
             Instantiate(platform_prefab_moving, new Vector3(x, y), Quaternion.identity);
@@ -365,11 +359,9 @@ public class Grid_Manager : MonoBehaviour
                     secret_room[new Vector2(x, y)] = spawnedTile;
                     if (x == 0 && y == 0)
                     {
-                        var portal = Instantiate(PortalOut, new Vector3(x + number_rooms[i] + 2, y + number_rooms[i] + 3), Quaternion.identity);
+                        var portal = Instantiate(PortalOut, new Vector3(x + number_rooms[i] + 4, y + number_rooms[i] + 2), Quaternion.identity);
                         portal.tag = "portal_end_"+i.ToString();
-                        var portal_target = Instantiate(portal_target_prefab, new Vector3(x + number_rooms[i] + 5, y + number_rooms[i] + 3), Quaternion.identity);
-                        portal_target.tag = "portal_target_"+(i+3).ToString();
-                        Instantiate(enemy_walking, new Vector3(grid_width + number_rooms[i]+6, y + number_rooms[i] + 2), Quaternion.identity);
+                        Instantiate(enemy_walking, new Vector3(grid_width + number_rooms[i], y + number_rooms[i] + 2), Quaternion.identity);
                         Instantiate(egg, new Vector3(grid_width + number_rooms[i] - 1, y + number_rooms[i]+1), Quaternion.identity);
                     }
 

@@ -57,7 +57,7 @@ public class SkillTreeBtn : MonoBehaviour
                 break;
 
             case "skill04_ShieldDamage10":
-                PlayerInfo.Instance.damage += 10;
+                PlayerInfo.Instance.damage += PlayerInfo.Instance.damage + 10;
                 PlayerInfo.Instance.skillNum -= this.skillUpNeed;
                 GetComponent<Button>().interactable = false;
                 break;

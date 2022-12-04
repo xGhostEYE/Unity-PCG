@@ -18,12 +18,6 @@ TagManager:
   - portal_end_0
   - portal_end_1
   - portal_end_2
-  - portal_target_0
-  - portal_target_1
-  - portal_target_2
-  - portal_target_3
-  - portal_target_4
-  - portal_target_5
   layers:
   - Default
   - TransparentFX
