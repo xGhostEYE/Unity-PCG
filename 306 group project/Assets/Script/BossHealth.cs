@@ -24,11 +24,11 @@ public class BossHealth : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Shield")
-    //    {
-    //        Hitpoints -= 10;
-    //    }
-    //}
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Shield")
+        {
+            Hitpoints -= 10;
+        }
+    }
 }

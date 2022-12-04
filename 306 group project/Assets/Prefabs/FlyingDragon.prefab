@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8146077706262669384}
   - component: {fileID: 8146077706262669385}
   - component: {fileID: 8146077706262669365}
-  - component: {fileID: 2375834680870696358}
   m_Layer: 0
   m_Name: FlyingDragon
   m_TagString: Enemy
@@ -148,20 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c02b3b495b27a4f8c17566379a6519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2375834680870696358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8146077706262669386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ad621eb7b8b4e547826571f4141d9aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxhealth: 100
 --- !u!1 &8146077707423079473
 GameObject:
   m_ObjectHideFlags: 0
