@@ -1458,7 +1458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186719bfe8c7ff9429667a0b5e4b46ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 900
+  Speed: 600
   jumpForce: 400
   isGround: 0
   jumpCount: 0
@@ -1507,6 +1507,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5359973500537605779, guid: 59ba1729e041b1946b41098b39e9132d, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359973500537605784, guid: 59ba1729e041b1946b41098b39e9132d, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5359973501679349154, guid: 59ba1729e041b1946b41098b39e9132d, type: 3}
