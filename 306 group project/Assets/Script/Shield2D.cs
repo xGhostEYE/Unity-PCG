@@ -60,7 +60,11 @@ public class Shield2D : MonoBehaviour
         }
         if (col.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
-            enemyComponent.TakeDamage(1);
+            enemyComponent.TakeDamage(60);
+        }
+        if (col.gameObject.TryGetComponent<BossHealth>(out BossHealth bossComponent))
+        {
+            bossComponent.TakeHit(15);
         }
     }
 
