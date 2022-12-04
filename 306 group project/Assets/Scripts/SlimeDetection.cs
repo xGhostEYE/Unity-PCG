@@ -12,7 +12,6 @@ public class SlimeDetection : MonoBehaviour
 {
     private GameObject nearestEnemy;
     public GameObject[] enemiesFound;
-    [SerializeField] private AudioSource thankyouSound;
     private float oldDistance = 9999;
     private bool check = true;
     [SerializeField] private AudioSource rewardSound;
@@ -39,7 +38,11 @@ public class SlimeDetection : MonoBehaviour
         //        oldDistance = dist;
         //    }
         //}
+
+        // the following is for testing only, take it out later
         StartCoroutine(slimeDialouge());
+        rewardSound.Play();
+
     }
 
     // Update is called once per frame
@@ -51,7 +54,9 @@ public class SlimeDetection : MonoBehaviour
         //    enemyDeathHandler();
         //}
 
-        // if user presses "enter", progress through dialogue
+        
+
+        // if user presses "enter", progress through dialogue, you can only press enter after enemyHandler has been called
         //if (Input.GetKeyDown(KeyCode.Return) & check == false) {
         //    if (slimeIndex < slimeSentences.Length - 1) {
         //        slimeIndex++;
@@ -59,13 +64,15 @@ public class SlimeDetection : MonoBehaviour
         //        StartCoroutine(slimeDialouge);
         //    }
         //   else {
-        //
-        //    // melt away and say bye
-        //    // destroy object
+        //        // melt away and say bye
+        //        // destroy object
+        //        slimeSpeechAnimator.SetTrigger("Close");
         //        Destroy(this.gameObject, 3.0f);
         //    }
         //}
 
+
+        // the following block is for testing only, don't use it in the final product
         if (Input.GetKeyDown(KeyCode.Return)) {
             if (slimeIndex < slimeSentences.Length - 1) {
                 slimeIndex++;
