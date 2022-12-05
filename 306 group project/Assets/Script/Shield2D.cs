@@ -37,11 +37,7 @@ public class Shield2D : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("2D Collision!");
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Destroy(collision.gameObject);
-        }
+
 
         if (collision.gameObject.tag == "EnemyBullet")
         {
@@ -51,15 +47,18 @@ public class Shield2D : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("2D Collision!");
-        if (col.gameObject.tag == "Enemy")
-        {
-            Destroy(col.gameObject);
-        }
 
         if (col.gameObject.tag == "EnemyBullet")
         {
             Destroy(col.gameObject);
+        }
+        if (col.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+        {
+            enemyComponent.TakeDamage(PlayerInfo.Instance.damage);
+        }
+        if (col.gameObject.TryGetComponent<BossHealth>(out BossHealth bossComponent))
+        {
+            bossComponent.TakeHit(PlayerInfo.Instance.damage);
         }
     }
 

@@ -96,6 +96,14 @@ public class PlayerInfo : MonoBehaviour
         {
             PlayerInfo.Instance.skillNum += 1;
         }
+        if (collision.gameObject.tag == "BossRange")
+        {
+            PlayerInfo.Instance.hp -= 5;
+        }
+        if (collision.gameObject.tag == "BossMelee")
+        {
+            PlayerInfo.Instance.hp -= 7;
+        }
     }
     public void KillPlayer(){
         if (hp <= 0 ){
