@@ -23,7 +23,7 @@ public class BossBullet : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.name.Equals("PlayerTest"))
+		if (col.gameObject.tag.Equals("Player"))
 		{
 			Destroy(gameObject);
 		}
