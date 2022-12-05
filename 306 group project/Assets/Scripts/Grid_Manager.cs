@@ -86,6 +86,7 @@ public class Grid_Manager : MonoBehaviour
                 spawnedTile.name = $"Tile {x} {y}";
                 background_tiles[new Vector2(x, y)] = spawnedTile;
             }
+
             
         }
         
@@ -247,7 +248,7 @@ public class Grid_Manager : MonoBehaviour
             for (int x = 0; x < grid_width-12; x+=4){
                 generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
                 ,list_of_tree_trunks,list_of_trees);
-                if(x == 0){
+                if(x == 1){
                     int i;
                     for (i = 0; i < grid_height-3; i+=4){
                         Instantiate(large_vine_prefab, new Vector3(grid_width-2, i), Quaternion.identity);
@@ -256,7 +257,7 @@ public class Grid_Manager : MonoBehaviour
                 }
                 Instantiate(cliff_prefab, new Vector3(x+2, y-3), Quaternion.identity);
             }
-            Instantiate(exit_prefab, new Vector3(2, grid_height-3), Quaternion.identity);
+            Instantiate(exit_prefab, new Vector3(2, grid_height-4), Quaternion.identity);
             
         }
         if(chance_to_spawn_exit == 2){
@@ -272,7 +273,7 @@ public class Grid_Manager : MonoBehaviour
                 }
                 Instantiate(cliff_prefab, new Vector3(x+2, y-3), Quaternion.identity);
             }
-            Instantiate(exit_prefab, new Vector3(grid_width-2, grid_height-3), Quaternion.identity);
+            Instantiate(exit_prefab, new Vector3(grid_width-2, grid_height-4), Quaternion.identity);
         }
     }
 
