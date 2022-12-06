@@ -8,14 +8,14 @@ public class BossBullet : MonoBehaviour
 
 	Rigidbody2D rb;
 
-	temporaryMovement target;
+	Player target;
 	Vector2 moveDirection;
 
 	// Use this for initialization
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		target = GameObject.FindObjectOfType<temporaryMovement>();
+		target = GameObject.FindObjectOfType<Player>();
 		moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
 		rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
 		Destroy(gameObject, 3f);

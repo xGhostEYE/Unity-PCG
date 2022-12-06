@@ -17,7 +17,7 @@ public class BossHealth : MonoBehaviour
     public void TakeHit(float damage)
     {
         Hitpoints -= damage;
-        //HealthBar.SetHealth(Hitpoints, MaxHitPoints);
+        HealthBar.SetHealth(Hitpoints, MaxHitPoints);
         if(Hitpoints <= 0)
         {
             GetComponent<Animator>().Play("Die");
