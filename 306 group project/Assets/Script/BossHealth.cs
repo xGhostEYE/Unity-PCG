@@ -22,6 +22,8 @@ public class BossHealth : MonoBehaviour
         {
             GetComponent<Animator>().Play("Die");
             Destroy(gameObject);
+            Instantiate((GameObject)Resources.Load("Dragon_Egg_01"), new Vector3(205, 203), Quaternion.identity);
+            GameObject.FindGameObjectWithTag("portal_end_2").SetActive(true);
         }
     }
 

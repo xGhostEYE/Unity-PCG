@@ -10,7 +10,7 @@ public class Grid_Manager : MonoBehaviour
 
     [SerializeField] private Tile background_prefab, wall_prefab, floor_prefab, room_background_prefab;
 
-    [SerializeField] private GameObject portal_target_prefab,enemy_flying, enemy_walking, boss_portal_prefab,
+    [SerializeField] private GameObject portal_target_prefab,enemy_flying, enemy_walking,
     enemy_wall_crawl, slime_prefab, player_prefab, exit_prefab, platform_prefab, 
     platform_large_prefab, platform_prefab_moving, fence_1_prefab, fence_2_prefab, 
     fence_3_prefab, rock_head_prefab, sign_prefab, tree_trunk_1_prefab, tree_trunk_3_prefab, 
@@ -342,24 +342,70 @@ public class Grid_Manager : MonoBehaviour
 
     List<Dictionary<Vector2, Tile>> GenerateRooms()
     {
-        grid_width = UnityEngine.Random.Range(15, 20);
-        grid_height = 15;
+        grid_width = UnityEngine.Random.Range(25, 30);
+        grid_height = 20;
         Dictionary<Vector2, Tile> secret_room = new Dictionary<Vector2, Tile>();
         List<Dictionary<Vector2, Tile>> rooms_list = new List<Dictionary<Vector2, Tile>>();
         List<int> number_rooms = new List<int>();
         number_rooms.Add(120);
         number_rooms.Add(-120);
         number_rooms.Add(200);
-        for (int i = 0; i < 3; i++)
-        {
+        // create boss room
+        for (int x = 0; x < 45; x++){
+            for (int y = 0; y < 30; y++){
+                if (y == 0 && x == 0){
+                    var portal = Instantiate(PortalOut, new Vector3(x + number_rooms[2] + 2, y + number_rooms[2] + 3), Quaternion.identity);
+                    portal.tag = "portal_end_2";
+                    var portal_target = Instantiate(portal_target_prefab, new Vector3(x + number_rooms[2] + 5, y + number_rooms[2] + 3), Quaternion.identity);
+                    portal_target.tag = "portal_target_5";
+                }
+                if (x==30 && y==15){
+                    Instantiate(boss_prefab, new Vector3(30 + 200 + 2, 15 + 200), Quaternion.identity);
+                }
+                if (y == 0){
+                    Instantiate(floor_prefab, new Vector3(x + number_rooms[2], y + number_rooms[2]), Quaternion.identity);
+                }
+                if (x == 0 ){
+                    Instantiate(wall_prefab, new Vector3(x + number_rooms[2], y + number_rooms[2]), Quaternion.identity);
+                }
+                if (x==44){
+                    Instantiate(wall_prefab, new Vector3(x + number_rooms[2], y + number_rooms[2]), Quaternion.identity);
+                }
+            }
+        }
+        for (int x = 4; x < 42; x+=8){
+            for (int y = 6; y < 20; y+=8){
+                if(UnityEngine.Random.Range(0,3) == 2){
+                    GameObject asset;
+                    if(UnityEngine.Random.Range(0,2) == 0){
+                        asset = platform_prefab_moving;
+                    }
+                    else{
+                        asset = platform_prefab;
+                    }
+                    Instantiate(asset, new Vector3(x + 200, y + 200), Quaternion.identity);
+                }
+            }
+        }
+        // create other egg rooms
+        for (int i = 0; i < 2; i++){
+            GameObject asset;
+            if(UnityEngine.Random.Range(0,2) == 0){
+                asset = egg;
+            }
+            else{
+                asset = slime_prefab;
+            }
             for (int x = 0; x < grid_width; x++)
             {
                 for (int y = 0; y < grid_height; y++)
                 {
+
                     if (y == 0)
                     {
-                        var floor = Instantiate(floor_prefab, new Vector3(x + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
-                        floor.name = $"floor_Tile {x} {y}";
+                        Instantiate(floor_prefab, new Vector3(x + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
+                        generate_assets(x+number_rooms[i],y+number_rooms[i]-1,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones,list_of_tree_trunks,
+                        list_of_trees);
                     }
                     var spawnedTile = Instantiate(room_background_prefab, new Vector3(x + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
                     spawnedTile.name = $"room_Tile_{i} {x} {y}";
@@ -371,7 +417,13 @@ public class Grid_Manager : MonoBehaviour
                         var portal_target = Instantiate(portal_target_prefab, new Vector3(x + number_rooms[i] + 5, y + number_rooms[i] + 3), Quaternion.identity);
                         portal_target.tag = "portal_target_"+(i+3).ToString();
                         Instantiate(enemy_walking, new Vector3(grid_width + number_rooms[i]+6, y + number_rooms[i] + 2), Quaternion.identity);
-                        Instantiate(egg, new Vector3(grid_width + number_rooms[i] - 1, y + number_rooms[i]+1), Quaternion.identity);
+                        if(asset == slime_prefab){
+                            Instantiate(asset, new Vector3(grid_width + number_rooms[i] - 3, y + number_rooms[i]+4), Quaternion.identity);
+                        }
+                        else{
+                            Instantiate(asset, new Vector3(grid_width + number_rooms[i] - 3, y + number_rooms[i]+1), Quaternion.identity);
+
+                        }
                     }
 
                 }
@@ -380,7 +432,7 @@ public class Grid_Manager : MonoBehaviour
             rooms_list.Add(secret_room);
             secret_room.Clear();
         }
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
             for (int y = 0; y < grid_height; y++)
             {

@@ -8,16 +8,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     public static GameObject player;
-
+    private GameObject boss;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update(){   
     }
 
     void Awake()
@@ -41,7 +38,6 @@ public class GameManager : MonoBehaviour
         PlayerInfo.Instance.skillNum = PlayerPrefs.GetInt("Score");
         player.SetActive(true);
     }
-
     public void gameOver()
     {
         StartCoroutine(WaitLoad());

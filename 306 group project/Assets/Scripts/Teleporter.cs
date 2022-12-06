@@ -27,6 +27,7 @@ public class Teleporter : MonoBehaviour{
         }
         if (collision.gameObject.CompareTag("Player") && this.gameObject.CompareTag("portal_start_2")){
             collision.gameObject.transform.position =  GameObject.FindGameObjectWithTag("portal_target_5").transform.position;
+            GameObject.FindGameObjectWithTag("portal_end_2").SetActive(false);
             
         }
         if (collision.gameObject.CompareTag("Player") && this.gameObject.CompareTag("portal_end_2")){
