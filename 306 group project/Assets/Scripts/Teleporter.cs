@@ -11,29 +11,22 @@ public class Teleporter : MonoBehaviour{
         }
         if (collision.gameObject.CompareTag("Player") && this.gameObject.CompareTag("portal_start_0")){
             collision.gameObject.transform.position =  GameObject.FindGameObjectWithTag("portal_target_3").transform.position;
-            
         }
         if (collision.gameObject.CompareTag("Player") && this.gameObject.CompareTag("portal_end_0")){
             collision.gameObject.transform.position =  GameObject.FindGameObjectWithTag("portal_target_0").transform.position;
-            
         }
         if (collision.gameObject.CompareTag("Player") && this.gameObject.CompareTag("portal_start_1")){
             collision.gameObject.transform.position =  GameObject.FindGameObjectWithTag("portal_target_4").transform.position;
-            
         }
         if (collision.gameObject.CompareTag("Player") && this.gameObject.CompareTag("portal_end_1")){
             collision.gameObject.transform.position =  GameObject.FindGameObjectWithTag("portal_target_1").transform.position;
-            
         }
         if (collision.gameObject.CompareTag("Player") && this.gameObject.CompareTag("portal_start_2")){
             collision.gameObject.transform.position =  GameObject.FindGameObjectWithTag("portal_target_5").transform.position;
-            GameObject.FindGameObjectWithTag("portal_end_2").SetActive(false);
-            
+            GameObject.FindGameObjectWithTag("portal_end_2").SetActive(false);            
         }
         if (collision.gameObject.CompareTag("Player") && this.gameObject.CompareTag("portal_end_2")){
             collision.gameObject.transform.position =  GameObject.FindGameObjectWithTag("portal_target_2").transform.position;
-            
         }
-        
     }
 }
