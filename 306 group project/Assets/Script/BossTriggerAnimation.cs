@@ -11,7 +11,6 @@ public class BossTriggerAnimation : MonoBehaviour
     {
         object1 = GameObject.FindWithTag("Player");
         Boss = this.gameObject;
-        Debug.Log(object1);
     }
 
     void Update()

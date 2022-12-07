@@ -7,7 +7,7 @@ using System.Linq;
 public class Grid_Manager : MonoBehaviour
 {
     private int grid_width, grid_height;
-
+    public int platform_spawning_interval;
     [SerializeField] private Tile background_prefab, wall_prefab, floor_prefab, room_background_prefab;
 
     [SerializeField] private GameObject portal_target_prefab,enemy_flying, enemy_walking,
@@ -51,6 +51,7 @@ public class Grid_Manager : MonoBehaviour
         bool spawned_first_floor = false;
         bool spawned_second_floor = false;
         bool spawned_third_floor = false;
+        platform_spawning_interval = UnityEngine.Random.Range(8, 10);
         int chance_to_spawn_exit = UnityEngine.Random.Range(1, 3);
         acidSpawner.transform.position = new Vector3(0, -5);
         acidSpawner.GetComponent<AcidSpawner>().SpawnAcid();
@@ -92,27 +93,27 @@ public class Grid_Manager : MonoBehaviour
         // todo: spawning playuer not working because something with camera
         // Instantiate(player_prefab, new Vector3(3, 1), Quaternion.identity);
         player_prefab.transform.position = new Vector3(3, 3);
+        Instantiate(bound_prefab, new Vector3(0, 0), Quaternion.identity);
+        Instantiate(bound_prefab, new Vector3(grid_width, 0), Quaternion.identity);
         // place walls
         for (int y = 0; y < grid_height; y++)
         {
-            var left_wall = Instantiate(bound_prefab, new Vector3(0, y), Quaternion.identity);
+            var left_wall = Instantiate(wall_prefab, new Vector3(0, y), Quaternion.identity);
             left_wall.name = $"left_wall_Tile {0} {y}";
-            var right_wall = Instantiate(bound_prefab, new Vector3(grid_width, y), Quaternion.identity);
+            var right_wall = Instantiate(wall_prefab, new Vector3(grid_width, y), Quaternion.identity);
             right_wall.name = $"right_right_Tile {0} {y}";
             // spawn exit
             if (chance_to_spawn_exit == 1 && alread_spawned_exit == false && y == grid_height - 6)
             {
-                Debug.Log("left");
                 generate_floor_exit(y,grid_height,grid_width,chance_to_spawn_exit);
             }
             if (chance_to_spawn_exit == 2 && alread_spawned_exit == false && y == grid_height - 6)
             {
-                Debug.Log("right");
                 generate_floor_exit(y,grid_height,grid_width,chance_to_spawn_exit);
             }
         }
         // place platforms 
-        for (int y = 7; y < grid_height - 10; y+= UnityEngine.Random.Range(8, 10))
+        for (int y = 7; y < grid_height - 10; y+= platform_spawning_interval)
         {
 
             int random_chance_spawn = UnityEngine.Random.Range(1, 3);
@@ -191,7 +192,6 @@ public class Grid_Manager : MonoBehaviour
 
     private void generate_floor(int y, int grid_height, int grid_width){
         var where_to_spawn = UnityEngine.Random.Range(0,4);
-        Debug.Log(where_to_spawn);
         if(where_to_spawn == 1){
             // spawn floor on left side
             int x;

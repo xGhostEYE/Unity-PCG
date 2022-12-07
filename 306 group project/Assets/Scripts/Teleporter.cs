@@ -6,7 +6,6 @@ using UnityEngine;
 public class Teleporter : MonoBehaviour{
     [SerializeField] GameObject gate;
     void OnTriggerEnter2D(Collider2D collision){
-        Debug.Log(collision.gameObject.name);
         if(collision.gameObject.CompareTag("Ground")){
             Destroy(collision.gameObject);
         }
