@@ -7,12 +7,12 @@ public class BossHealth : MonoBehaviour
     public float Hitpoints;
 
     public float MaxHitPoints = 100;
-   // public healthBarBehaviour HealthBar;
+    //public healthBarBehaviour HealthBar;
 
     private void Start()
     {
         Hitpoints = MaxHitPoints;
-       // HealthBar.SetHealth(Hitpoints, MaxHitPoints);
+        //HealthBar.SetHealth(Hitpoints, MaxHitPoints);
     }
     public void TakeHit(float damage)
     {
