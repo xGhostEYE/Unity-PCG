@@ -10,8 +10,8 @@ public class Grid_Manager : MonoBehaviour
 
     [SerializeField] private Tile background_prefab, wall_prefab, floor_prefab, room_background_prefab;
 
-    [SerializeField] private GameObject portal_target_prefab,enemy_flying, enemy_walking, boss_portal_prefab,
-    enemy_wall_crawl, slime_prefab, player_prefab, exit_prefab, platform_prefab, 
+    [SerializeField] private GameObject portal_target_prefab,enemy_flying, enemy_walking,
+    enemy_wall_crawl, slime_prefab, player_prefab, exit_prefab, platform_prefab, bound_prefab, 
     platform_large_prefab, platform_prefab_moving, fence_1_prefab, fence_2_prefab, 
     fence_3_prefab, rock_head_prefab, sign_prefab, tree_trunk_1_prefab, tree_trunk_3_prefab, 
     tree_trunk_4_prefab, stone_1_prefab,stone_2_prefab,stone_3_prefab,stone_4_prefab,stone_6_prefab,stone_7_prefab,
@@ -77,8 +77,7 @@ public class Grid_Manager : MonoBehaviour
                     floor.name = $"floor_Tile {x} {y}";
                     floor_tiles[new Vector2(x, y)] = floor;
                     Instantiate(grass_8_prefab, new Vector3(x, y+1), Quaternion.identity);
-                    generate_assets(x,y,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones,list_of_tree_trunks,
-                    list_of_trees);
+                    generate_assets(x,y,false,true,true,true,true,true,true);
                 }
 
                 // place background
@@ -86,6 +85,7 @@ public class Grid_Manager : MonoBehaviour
                 spawnedTile.name = $"Tile {x} {y}";
                 background_tiles[new Vector2(x, y)] = spawnedTile;
             }
+
             
         }
         
@@ -95,9 +95,9 @@ public class Grid_Manager : MonoBehaviour
         // place walls
         for (int y = 0; y < grid_height; y++)
         {
-            var left_wall = Instantiate(wall_prefab, new Vector3(0, y), Quaternion.identity);
+            var left_wall = Instantiate(bound_prefab, new Vector3(0, y), Quaternion.identity);
             left_wall.name = $"left_wall_Tile {0} {y}";
-            var right_wall = Instantiate(wall_prefab, new Vector3(grid_width, y), Quaternion.identity);
+            var right_wall = Instantiate(bound_prefab, new Vector3(grid_width, y), Quaternion.identity);
             right_wall.name = $"right_right_Tile {0} {y}";
             // spawn exit
             if (chance_to_spawn_exit == 1 && alread_spawned_exit == false && y == grid_height - 6)
@@ -112,7 +112,7 @@ public class Grid_Manager : MonoBehaviour
             }
         }
         // place platforms 
-        for (int y = 7; y < grid_height - 10; y+= UnityEngine.Random.Range(6, 9))
+        for (int y = 7; y < grid_height - 10; y+= UnityEngine.Random.Range(8, 10))
         {
 
             int random_chance_spawn = UnityEngine.Random.Range(1, 3);
@@ -164,7 +164,7 @@ public class Grid_Manager : MonoBehaviour
             int platform_length_middle = UnityEngine.Random.Range(4, 7);
             // should make it randomly go left or right in the middle
             platform_size = UnityEngine.Random.Range(1, 4);
-            generate_platform(grid_width - (grid_width / 2),y,platform_size);
+            generate_platform(grid_width - (grid_width / 2)+2,y,platform_size);
             // spawn enemy
             if (random_chance_spawn == 2)
             {
@@ -195,10 +195,10 @@ public class Grid_Manager : MonoBehaviour
         if(where_to_spawn == 1){
             // spawn floor on left side
             int x;
-            for (x = 3; x < (grid_width/2); x+=4){
+            for (x = 3; x < (grid_width/2)-4; x+=4){
                 Instantiate(cliff_prefab, new Vector3(x, y-3), Quaternion.identity);
-                generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
-                ,list_of_tree_trunks,list_of_trees);
+                generate_assets(x,y-2,false,true,true,true,true
+                ,true,true);
             }
             // spawn portal
             var portal = Instantiate(PortalIn, new Vector3(3, y+2), Quaternion.identity);
@@ -209,10 +209,10 @@ public class Grid_Manager : MonoBehaviour
         if(where_to_spawn == 2){
             // spawn floor on right side
             int x;
-            for (x = grid_width/2; x < grid_width; x+=4){
+            for (x = (grid_width/2)+4; x < grid_width; x+=4){
                 Instantiate(cliff_prefab, new Vector3(x, y-3), Quaternion.identity);
-                generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
-                ,list_of_tree_trunks,list_of_trees);
+                generate_assets(x,y-2,false,true,true,true,true
+                ,true,true);
             }
             // spawn portal
             var portal = Instantiate(PortalIn, new Vector3(grid_width-3, y+2), Quaternion.identity);
@@ -224,14 +224,14 @@ public class Grid_Manager : MonoBehaviour
             // spawn floor on both sides with hole in middle (j is x)
             for (int j = 3; j < (grid_width/2)-3; j+=4){
                 Instantiate(cliff_prefab, new Vector3(j, y-3), Quaternion.identity);
-                generate_assets(j,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
-                ,list_of_tree_trunks,list_of_trees);
+                generate_assets(j,y-2,false,true,true,true,true
+                ,true,true);
             }
             int x;
             for (x = (grid_width/2)+4; x < grid_width; x+=4){
                 Instantiate(cliff_prefab, new Vector3(x, y-3), Quaternion.identity);
-                generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
-                ,list_of_tree_trunks,list_of_trees);
+                generate_assets(x,y-2,false,true,true,true,true
+                ,true,true);
             }
             // spawn portal
             var portal = Instantiate(PortalIn, new Vector3(grid_width-3, y+2), Quaternion.identity);
@@ -245,9 +245,9 @@ public class Grid_Manager : MonoBehaviour
         if(chance_to_spawn_exit == 1){
             
             for (int x = 0; x < grid_width-12; x+=4){
-                generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
-                ,list_of_tree_trunks,list_of_trees);
-                if(x == 0){
+                generate_assets(x,y-2,false,true,true,true,true
+                ,true,true);
+                if(x == 1){
                     int i;
                     for (i = 0; i < grid_height-3; i+=4){
                         Instantiate(large_vine_prefab, new Vector3(grid_width-2, i), Quaternion.identity);
@@ -256,13 +256,13 @@ public class Grid_Manager : MonoBehaviour
                 }
                 Instantiate(cliff_prefab, new Vector3(x+2, y-3), Quaternion.identity);
             }
-            Instantiate(exit_prefab, new Vector3(2, grid_height-3), Quaternion.identity);
+            Instantiate(exit_prefab, new Vector3(2, grid_height-4), Quaternion.identity);
             
         }
         if(chance_to_spawn_exit == 2){
             for (int x = 8; x < grid_width-1; x+=3){
-                generate_assets(x,y-2,list_of_fences,list_of_flowers,list_of_grass_plants,list_of_stones
-                ,list_of_tree_trunks,list_of_trees);
+                generate_assets(x,y-2,false,true,true,true,true
+                ,true,true);
                 if(x == 12){
                     int i;
                     for (i = 0; i < grid_height-6; i+=4){
@@ -272,21 +272,24 @@ public class Grid_Manager : MonoBehaviour
                 }
                 Instantiate(cliff_prefab, new Vector3(x+2, y-3), Quaternion.identity);
             }
-            Instantiate(exit_prefab, new Vector3(grid_width-2, grid_height-3), Quaternion.identity);
+            Instantiate(exit_prefab, new Vector3(grid_width-2, grid_height-4), Quaternion.identity);
         }
     }
 
-    private void generate_assets(int x, int y, List<GameObject> list_of_fences,List<GameObject>list_of_flowers,List<GameObject>list_of_grass_plants,List<GameObject>list_of_stones,List<GameObject>list_of_tree_trunks,
-        List<GameObject>list_of_trees){
-        // if(UnityEngine.Random.Range(0,3) == 2){
-        var type_of_tree = list_of_trees[UnityEngine.Random.Range(0,list_of_trees.Count)];
-        Instantiate(type_of_tree, new Vector3(x, y+5), Quaternion.identity);
-        // {
+    private void generate_assets(int x, int y, bool platform_or_floor,bool fences,bool flowers,bool grass_plants,bool stones,bool tree_trunks,
+        bool trees){        
+        // false if platform
+        if (platform_or_floor == false){
+            Instantiate(list_of_trees[UnityEngine.Random.Range(0,list_of_trees.Count)], new Vector3(x, y+5), Quaternion.identity);
+        }
         var random_asset = UnityEngine.Random.Range(0,6);
-        if (random_asset == 1){
+        if (random_asset == 0 && trees == true && platform_or_floor == false){
+            Instantiate(list_of_trees[UnityEngine.Random.Range(0,list_of_trees.Count)], new Vector3(x, y+5), Quaternion.identity);
+        }
+        if (random_asset == 1 && fences == true){
             Instantiate(list_of_fences[UnityEngine.Random.Range(0,list_of_fences.Count)], new Vector3(x, y+2), Quaternion.identity);
         }
-        if (random_asset == 2){
+        if (random_asset == 2 && tree_trunks == true){
             var type_of_trunk = list_of_tree_trunks[UnityEngine.Random.Range(0,list_of_tree_trunks.Count)];
             if(type_of_trunk == tree_trunk_1_prefab){
                 Instantiate(type_of_trunk, new Vector3(x, y+4), Quaternion.identity);
@@ -294,19 +297,15 @@ public class Grid_Manager : MonoBehaviour
             else{
                 Instantiate(type_of_trunk, new Vector3(x, y+2), Quaternion.identity);
             }
-            
         }
-        if(random_asset == 3){
-            var type_of_stone = list_of_stones[UnityEngine.Random.Range(0,list_of_stones.Count)];
-            Instantiate(type_of_stone, new Vector3(x, y+1), Quaternion.identity);
+        if(random_asset == 3 && stones == true){
+            Instantiate(list_of_stones[UnityEngine.Random.Range(0,list_of_stones.Count)], new Vector3(x, y+1), Quaternion.identity);
         }
-        if(random_asset == 4){
-            var type_of_flower = list_of_flowers[UnityEngine.Random.Range(0,list_of_flowers.Count)];
-            Instantiate(type_of_flower, new Vector3(x, y+2), Quaternion.identity);
+        if(random_asset == 4 && flowers == true){
+            Instantiate(list_of_flowers[UnityEngine.Random.Range(0,list_of_flowers.Count)], new Vector3(x, y+2), Quaternion.identity);
         }
-        if(random_asset == 5){
-            var type_of_grass_plant = list_of_grass_plants[UnityEngine.Random.Range(0,list_of_grass_plants.Count)];
-            Instantiate(type_of_grass_plant, new Vector3(x, y+2), Quaternion.identity);
+        if(random_asset == 5 && grass_plants == true){
+            Instantiate(list_of_grass_plants[UnityEngine.Random.Range(0,list_of_grass_plants.Count)], new Vector3(x, y+2), Quaternion.identity);
         }
     }
 
@@ -322,6 +321,8 @@ public class Grid_Manager : MonoBehaviour
         else
         {
             Instantiate(platform_prefab, new Vector3(x, y), Quaternion.identity);
+            generate_assets(x,y,true,true,true,true,true,false,
+            false);
         }
     }
 
@@ -341,24 +342,70 @@ public class Grid_Manager : MonoBehaviour
 
     List<Dictionary<Vector2, Tile>> GenerateRooms()
     {
-        grid_width = UnityEngine.Random.Range(15, 20);
-        grid_height = 15;
+        grid_width = UnityEngine.Random.Range(25, 30);
+        grid_height = 20;
         Dictionary<Vector2, Tile> secret_room = new Dictionary<Vector2, Tile>();
         List<Dictionary<Vector2, Tile>> rooms_list = new List<Dictionary<Vector2, Tile>>();
         List<int> number_rooms = new List<int>();
         number_rooms.Add(120);
         number_rooms.Add(-120);
         number_rooms.Add(200);
-        for (int i = 0; i < 3; i++)
-        {
+        // create boss room
+        for (int x = 0; x < 45; x++){
+            for (int y = 0; y < 30; y++){
+                if (y == 0 && x == 0){
+                    var portal = Instantiate(PortalOut, new Vector3(x + number_rooms[2] + 2, y + number_rooms[2] + 3), Quaternion.identity);
+                    portal.tag = "portal_end_2";
+                    var portal_target = Instantiate(portal_target_prefab, new Vector3(x + number_rooms[2] + 5, y + number_rooms[2] + 3), Quaternion.identity);
+                    portal_target.tag = "portal_target_5";
+                }
+                if (x==30 && y==15){
+                    Instantiate(boss_prefab, new Vector3(30 + 200 + 2, 15 + 200), Quaternion.identity);
+                }
+                if (y == 0){
+                    Instantiate(floor_prefab, new Vector3(x + number_rooms[2], y + number_rooms[2]), Quaternion.identity);
+                }
+                if (x == 0 ){
+                    Instantiate(wall_prefab, new Vector3(x + number_rooms[2], y + number_rooms[2]), Quaternion.identity);
+                }
+                if (x==44){
+                    Instantiate(wall_prefab, new Vector3(x + number_rooms[2], y + number_rooms[2]), Quaternion.identity);
+                }
+            }
+        }
+        for (int x = 4; x < 42; x+=8){
+            for (int y = 6; y < 20; y+=8){
+                if(UnityEngine.Random.Range(0,3) == 2){
+                    GameObject asset;
+                    if(UnityEngine.Random.Range(0,2) == 0){
+                        asset = platform_prefab_moving;
+                    }
+                    else{
+                        asset = platform_prefab;
+                    }
+                    Instantiate(asset, new Vector3(x + 200, y + 200), Quaternion.identity);
+                }
+            }
+        }
+        // create other egg rooms
+        for (int i = 0; i < 2; i++){
+            GameObject asset;
+            if(UnityEngine.Random.Range(0,2) == 0){
+                asset = egg;
+            }
+            else{
+                asset = slime_prefab;
+            }
             for (int x = 0; x < grid_width; x++)
             {
                 for (int y = 0; y < grid_height; y++)
                 {
+
                     if (y == 0)
                     {
-                        var floor = Instantiate(floor_prefab, new Vector3(x + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
-                        floor.name = $"floor_Tile {x} {y}";
+                        Instantiate(floor_prefab, new Vector3(x + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
+                        generate_assets(x+number_rooms[i],y+number_rooms[i]-1,false,true,true,true,true,true,
+                        true);
                     }
                     var spawnedTile = Instantiate(room_background_prefab, new Vector3(x + number_rooms[i], y + number_rooms[i]), Quaternion.identity);
                     spawnedTile.name = $"room_Tile_{i} {x} {y}";
@@ -370,7 +417,13 @@ public class Grid_Manager : MonoBehaviour
                         var portal_target = Instantiate(portal_target_prefab, new Vector3(x + number_rooms[i] + 5, y + number_rooms[i] + 3), Quaternion.identity);
                         portal_target.tag = "portal_target_"+(i+3).ToString();
                         Instantiate(enemy_walking, new Vector3(grid_width + number_rooms[i]+6, y + number_rooms[i] + 2), Quaternion.identity);
-                        Instantiate(egg, new Vector3(grid_width + number_rooms[i] - 1, y + number_rooms[i]+1), Quaternion.identity);
+                        if(asset == slime_prefab){
+                            Instantiate(asset, new Vector3(grid_width + number_rooms[i] - 3, y + number_rooms[i]+4), Quaternion.identity);
+                        }
+                        else{
+                            Instantiate(asset, new Vector3(grid_width + number_rooms[i] - 3, y + number_rooms[i]+1), Quaternion.identity);
+
+                        }
                     }
 
                 }
@@ -379,7 +432,7 @@ public class Grid_Manager : MonoBehaviour
             rooms_list.Add(secret_room);
             secret_room.Clear();
         }
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
             for (int y = 0; y < grid_height; y++)
             {
