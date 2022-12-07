@@ -45,7 +45,7 @@ public class PlayerInfo : MonoBehaviour
 
     public Animator shieldAnimator;
     private AnimatorStateInfo info;
-
+    public Gradient gradient;
     public Text skillNumText;
 
     void Awake()
@@ -54,13 +54,15 @@ public class PlayerInfo : MonoBehaviour
         skillNum = PlayerPrefs.GetInt("Score", 0);
 
         hpBar.fillAmount = hp / 100;
+
     }
 
     void Update()
     {
         skillNumText.text = "Points: " + skillNum.ToString();
+        // hpBar.fillAmount = hp / 100;
         hpBar.fillAmount = hp / 100;
-
+        hpBar.color = gradient.Evaluate(hpBar.fillAmount);
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (GameObject.Find("SkillTreePanel").transform.localScale==Vector3.zero)
