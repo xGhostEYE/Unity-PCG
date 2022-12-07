@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour
     {
         //PlayerInfo.Instance.display();
         PlayerPrefs.SetInt("Score", PlayerInfo.Instance.skillNum);
+        PlayerInfo.Instance.LevelCounter++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        PlayerInfo.Instance.skillNum = PlayerPrefs.GetInt("Score");
         player.SetActive(true);
     }
     public void gameOver()
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     IEnumerator WaitLoad()
     {
         yield return new WaitForSeconds(2.0f);
-        PlayerPrefs.SetInt("Score", 0);
+        Destroy(GameObject.Find("PlayerInfo"));
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
