@@ -50,19 +50,31 @@ public class PlayerInfo : MonoBehaviour
     private AnimatorStateInfo info;
     public Gradient gradient;
     public Text skillNumText;
-
+    public Text counterText;
 
     void Awake()
     {
-        Instance = this;
-        skillNum = PlayerPrefs.GetInt("Score", 0);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        //skillNum = PlayerPrefs.GetInt("Score", 0);
         hpBar.fillAmount = hp / 100;
 
     }
 
     void Update()
     {
+        skillNumText = GameObject.Find("SkillNum").GetComponent<Text>();
         skillNumText.text = "Points: " + skillNum.ToString();
+
+        counterText = GameObject.Find("LevelCounter").GetComponent<Text>();
+        counterText.text = "Level " + LevelCounter.ToString();
 
         hpBar.fillAmount = hp / 100;
         hpBar.color = gradient.Evaluate(hpBar.fillAmount);
