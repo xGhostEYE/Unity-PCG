@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1000
-  riseSpeed: 0.5
+  riseSpeed: 5
 --- !u!61 &5754176937407740749
 BoxCollider2D:
   m_ObjectHideFlags: 0
