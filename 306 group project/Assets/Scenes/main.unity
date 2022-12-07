@@ -8884,7 +8884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_AnchorMin.x
@@ -8892,7 +8892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8936,7 +8936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113
+      value: 1053
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10836,6 +10836,7 @@ MonoBehaviour:
   shieldRange: 0.4
   doubleDamage: 0.15
   revivePlayer: 0
+  LevelCounter: 0
   shieldAnimator: {fileID: 707006042}
   gradient:
     serializedVersion: 2
@@ -10867,7 +10868,6 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   skillNumText: {fileID: 1123164182}
-  counterText: {fileID: 1230007218}
 --- !u!4 &1918702392
 Transform:
   m_ObjectHideFlags: 0
