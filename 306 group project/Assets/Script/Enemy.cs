@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float health, maxhealth = 25f;
     [SerializeField] GameObject rewardEgg;
+    [SerializeField] GameObject floatingPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,10 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         health-=damageAmount;
-        if(health <= 0)
+
+        GameObject dmg = Instantiate(floatingPoint, this.gameObject.transform.position + new Vector3(0, 0.2f), Quaternion.identity);
+        dmg.transform.GetChild(0).GetComponent<TextMesh>().text = "-" + damageAmount;
+        if (health <= 0)
         {
             if (Random.Range(0.0f, 1.0f) < 0.3)
             {

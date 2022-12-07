@@ -163,6 +163,7 @@ MonoBehaviour:
   health: 0
   maxhealth: 25
   rewardEgg: {fileID: 6125931747696012452, guid: 9249cbf6dd476174bbec699ad6e8cf69, type: 3}
+  floatingPoint: {fileID: 7397623048909133089, guid: 213abc57072a49f4c9d75b114c3dc203, type: 3}
 --- !u!1 &8146077707423079473
 GameObject:
   m_ObjectHideFlags: 0
