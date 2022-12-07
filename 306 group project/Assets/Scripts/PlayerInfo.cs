@@ -43,16 +43,19 @@ public class PlayerInfo : MonoBehaviour
     [Header("RevivePlayer")]
     public float revivePlayer = 0;
 
+    [Header("LevelCounter")]
+    public int LevelCounter = 0;
+
     public Animator shieldAnimator;
     private AnimatorStateInfo info;
     public Gradient gradient;
     public Text skillNumText;
 
+
     void Awake()
     {
         Instance = this;
         skillNum = PlayerPrefs.GetInt("Score", 0);
-
         hpBar.fillAmount = hp / 100;
 
     }
@@ -60,7 +63,7 @@ public class PlayerInfo : MonoBehaviour
     void Update()
     {
         skillNumText.text = "Points: " + skillNum.ToString();
-        // hpBar.fillAmount = hp / 100;
+
         hpBar.fillAmount = hp / 100;
         hpBar.color = gradient.Evaluate(hpBar.fillAmount);
         if (Input.GetKeyDown(KeyCode.Q))
@@ -98,6 +101,7 @@ public class PlayerInfo : MonoBehaviour
         {
             PlayerInfo.Instance.skillNum += 1;
         }
+
     }
     public void KillPlayer(){
         if (hp <= 0 ){
