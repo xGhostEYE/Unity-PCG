@@ -21,16 +21,16 @@ public class BossBullet : MonoBehaviour
 		Destroy(gameObject, 3f);
 	}
 
-	void OnTriggerEnter2D(Collider2D col)
-	{
-		if (col.gameObject.tag.Equals("Player"))
-		{
-			Destroy(gameObject);
-		}
-	}
+	//void OnTriggerEnter2D(Collider2D col)
+	//{
+	//	if (col.gameObject.tag.Equals("Player"))
+	//	{
+	//		Destroy(gameObject);
+	//	}
+	//}
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy (gameObject);
-    }
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		Destroy(gameObject);
+	}
 }
