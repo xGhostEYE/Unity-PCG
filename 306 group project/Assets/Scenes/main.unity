@@ -8884,7 +8884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_AnchorMin.x
@@ -8892,7 +8892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8936,7 +8936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1053
+      value: -97
       objectReference: {fileID: 0}
     - target: {fileID: 6462920967277503330, guid: dd60c37512340bf4497ea08c3b76dcbe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10868,6 +10868,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   skillNumText: {fileID: 1123164182}
+  counterText: {fileID: 0}
 --- !u!4 &1918702392
 Transform:
   m_ObjectHideFlags: 0
