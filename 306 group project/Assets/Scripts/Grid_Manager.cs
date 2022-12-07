@@ -11,7 +11,7 @@ public class Grid_Manager : MonoBehaviour
     [SerializeField] private Tile background_prefab, wall_prefab, floor_prefab, room_background_prefab;
 
     [SerializeField] private GameObject portal_target_prefab,enemy_flying, enemy_walking,
-    enemy_wall_crawl, slime_prefab, player_prefab, exit_prefab, platform_prefab, 
+    enemy_wall_crawl, slime_prefab, player_prefab, exit_prefab, platform_prefab, bound_prefab, 
     platform_large_prefab, platform_prefab_moving, fence_1_prefab, fence_2_prefab, 
     fence_3_prefab, rock_head_prefab, sign_prefab, tree_trunk_1_prefab, tree_trunk_3_prefab, 
     tree_trunk_4_prefab, stone_1_prefab,stone_2_prefab,stone_3_prefab,stone_4_prefab,stone_6_prefab,stone_7_prefab,
@@ -95,9 +95,9 @@ public class Grid_Manager : MonoBehaviour
         // place walls
         for (int y = 0; y < grid_height; y++)
         {
-            var left_wall = Instantiate(wall_prefab, new Vector3(0, y), Quaternion.identity);
+            var left_wall = Instantiate(bound_prefab, new Vector3(0, y), Quaternion.identity);
             left_wall.name = $"left_wall_Tile {0} {y}";
-            var right_wall = Instantiate(wall_prefab, new Vector3(grid_width, y), Quaternion.identity);
+            var right_wall = Instantiate(bound_prefab, new Vector3(grid_width, y), Quaternion.identity);
             right_wall.name = $"right_right_Tile {0} {y}";
             // spawn exit
             if (chance_to_spawn_exit == 1 && alread_spawned_exit == false && y == grid_height - 6)

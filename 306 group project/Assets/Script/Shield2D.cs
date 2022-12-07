@@ -58,6 +58,7 @@ public class Shield2D : MonoBehaviour
         }
         if (col.gameObject.TryGetComponent<BossHealth>(out BossHealth bossComponent))
         {
+            Debug.Log("hurting boss");
             bossComponent.TakeHit(PlayerInfo.Instance.damage);
         }
     }

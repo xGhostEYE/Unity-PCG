@@ -188,8 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hitpoints: 0
-  MaxHitPoints: 100
-  HealthBar: {fileID: 0}
+  reward: {fileID: 6125931747696012452, guid: 9249cbf6dd476174bbec699ad6e8cf69, type: 3}
+  MaxHitPoints: 1
 --- !u!1 &5691447396650553922
 GameObject:
   m_ObjectHideFlags: 0

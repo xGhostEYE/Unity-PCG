@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 public class Teleporter : MonoBehaviour{
+    [SerializeField] GameObject gate;
     void OnTriggerEnter2D(Collider2D collision){
         Debug.Log(collision.gameObject.name);
         if(collision.gameObject.CompareTag("Ground")){
@@ -23,7 +24,8 @@ public class Teleporter : MonoBehaviour{
         }
         if (collision.gameObject.CompareTag("Player") && this.gameObject.CompareTag("portal_start_2")){
             collision.gameObject.transform.position =  GameObject.FindGameObjectWithTag("portal_target_5").transform.position;
-            GameObject.FindGameObjectWithTag("portal_end_2").SetActive(false);            
+            GameObject.FindGameObjectWithTag("portal_end_2").GetComponent<BoxCollider2D>().enabled = false;
+            Instantiate(gate, new Vector3(203,202), Quaternion.identity);
         }
         if (collision.gameObject.CompareTag("Player") && this.gameObject.CompareTag("portal_end_2")){
             collision.gameObject.transform.position =  GameObject.FindGameObjectWithTag("portal_target_2").transform.position;

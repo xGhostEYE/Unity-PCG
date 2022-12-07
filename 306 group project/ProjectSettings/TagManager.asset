@@ -24,6 +24,10 @@ TagManager:
   - portal_target_3
   - portal_target_4
   - portal_target_5
+  - BossMelee
+  - wall
+  - BossRange
+  - Gate
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossHealth : MonoBehaviour
 {
     public float Hitpoints;
+    [SerializeField] GameObject reward;
 
     public float MaxHitPoints = 100;
    // public healthBarBehaviour HealthBar;
@@ -21,9 +22,11 @@ public class BossHealth : MonoBehaviour
         if(Hitpoints <= 0)
         {
             GetComponent<Animator>().Play("Die");
+            Instantiate(reward, new Vector3(205, 203), Quaternion.identity);
+            GameObject.FindGameObjectWithTag("portal_end_2").GetComponent<BoxCollider2D>().enabled = true;
             Destroy(gameObject);
-            //Instantiate((GameObject)Resources.Load("Dragon_Egg_01"), new Vector3(205, 203), Quaternion.identity);
-            //GameObject.FindGameObjectWithTag("portal_end_2").SetActive(true);
+            Destroy(GameObject.FindGameObjectWithTag("Gate"));
+            GameObject.FindGameObjectWithTag("portal_end_2").GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
