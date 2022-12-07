@@ -23,7 +23,7 @@ public class BossHealth : MonoBehaviour
             GameObject.FindGameObjectWithTag("portal_end_2").GetComponent<BoxCollider2D>().enabled = true;
             Destroy(gameObject);
             Destroy(GameObject.FindGameObjectWithTag("Gate"));
-            GameObject.FindGameObjectWithTag("portal_end_2").GetComponent<BoxCollider2D>().enabled = false;
+            GameObject.FindGameObjectWithTag("portal_start_2").SetActive(false);
         }
     }
 
