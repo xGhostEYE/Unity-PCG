@@ -87,7 +87,7 @@ public class PlayerControl : MonoBehaviour
             PlayerInfo.Instance.hp -= 20;
         }
 
-        if (collision.gameObject.tag == "BoseRange" && PlayerInfo.Instance.hp > 0)
+        if (collision.gameObject.tag == "BossRange" && PlayerInfo.Instance.hp > 0)
         {
             PlayerInfo.Instance.hp -= 10;
         }
