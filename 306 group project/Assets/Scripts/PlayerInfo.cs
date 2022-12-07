@@ -43,13 +43,13 @@ public class PlayerInfo : MonoBehaviour
     [Header("RevivePlayer")]
     public float revivePlayer = 0;
 
-    [Header("LevelCounter")]
-    public int LevelCounter = 0;
+    public int LevelCounter;
 
     public Animator shieldAnimator;
     private AnimatorStateInfo info;
     public Gradient gradient;
     public Text skillNumText;
+    public Text counterText;
 
 
     void Awake()
@@ -65,6 +65,7 @@ public class PlayerInfo : MonoBehaviour
         }
         //skillNum = PlayerPrefs.GetInt("Score", 0);
         hpBar.fillAmount = hp / 100;
+        LevelCounter = 0;
 
     }
 
@@ -73,8 +74,8 @@ public class PlayerInfo : MonoBehaviour
         skillNumText = GameObject.Find("SkillNum").GetComponent<Text>();
         skillNumText.text = "Points: " + skillNum.ToString();
 
-        skillNumText = GameObject.Find("LevelCounter").GetComponent<Text>();
-        skillNumText.text = "Level " + LevelCounter.ToString();
+        counterText = GameObject.Find("LevelCounter").GetComponent<Text>();
+        counterText.text = "Level " + LevelCounter.ToString();
 
         hpBar.fillAmount = hp / 100;
         hpBar.color = gradient.Evaluate(hpBar.fillAmount);
@@ -112,6 +113,11 @@ public class PlayerInfo : MonoBehaviour
         if (collision.gameObject.tag=="Skill_Fruit")
         {
             PlayerInfo.Instance.skillNum += 1;
+        }
+
+        if (collision.gameObject.tag == "Exit")
+        {
+            PlayerInfo.Instance.LevelCounter += 1;
         }
 
     }
