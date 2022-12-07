@@ -32,7 +32,9 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
+        //PlayerInfo.Instance.display();
         PlayerPrefs.SetInt("Score", PlayerInfo.Instance.skillNum);
+
         PlayerInfo.Instance.LevelCounter++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         player.SetActive(true);

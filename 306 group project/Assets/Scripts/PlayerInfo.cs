@@ -43,14 +43,14 @@ public class PlayerInfo : MonoBehaviour
     [Header("RevivePlayer")]
     public float revivePlayer = 0;
 
-    public int LevelCounter;
+    [Header("LevelCounter")]
+    public int LevelCounter = 0;
 
     public Animator shieldAnimator;
     private AnimatorStateInfo info;
     public Gradient gradient;
     public Text skillNumText;
     public Text counterText;
-
 
     void Awake()
     {
@@ -65,7 +65,6 @@ public class PlayerInfo : MonoBehaviour
         }
         //skillNum = PlayerPrefs.GetInt("Score", 0);
         hpBar.fillAmount = hp / 100;
-        LevelCounter = 0;
 
     }
 
@@ -113,11 +112,6 @@ public class PlayerInfo : MonoBehaviour
         if (collision.gameObject.tag=="Skill_Fruit")
         {
             PlayerInfo.Instance.skillNum += 1;
-        }
-
-        if (collision.gameObject.tag == "Exit")
-        {
-            PlayerInfo.Instance.LevelCounter += 1;
         }
 
     }
