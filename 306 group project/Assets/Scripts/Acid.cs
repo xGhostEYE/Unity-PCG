@@ -5,8 +5,12 @@ using UnityEngine;
 public class Acid : MonoBehaviour
 {
     [SerializeField] private float damageToPlayer = 1000.0f;
-    [SerializeField] private float riseSpeed = 1.0f;
+    [SerializeField] private float riseSpeed = 0.5f;
 
+    void Start()
+    {
+        riseSpeed = Mathf.Min(5.0f, PlayerInfo.Instance.LevelCounter/2.0f);
+    }
 
     // Update is called once per frame
     void Update()
