@@ -81,7 +81,7 @@ public class Shield2D : MonoBehaviour
             return;
         }
 
-        lastHit = Time.time + 1.0f;
+        lastHit = Time.time + 2.0f;
 
         if (col.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
