@@ -251,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxhealth: 25
+  rewardEgg: {fileID: 6125931747696012452, guid: 9249cbf6dd476174bbec699ad6e8cf69, type: 3}
 --- !u!1 &5561985228914203419
 GameObject:
   m_ObjectHideFlags: 0
