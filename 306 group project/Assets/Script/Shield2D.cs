@@ -9,6 +9,7 @@ public class Shield2D : MonoBehaviour
     public float maxScale;
 
     public float shieldTimer = 0f;
+    private float lastHit = 0f;
 
     void Start()
     {
@@ -43,6 +44,16 @@ public class Shield2D : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+        {
+            enemyComponent.TakeDamage(PlayerInfo.Instance.damage);
+        }
+        if (collision.gameObject.TryGetComponent<BossHealth>(out BossHealth bossComponent))
+        {
+            Debug.Log("hurting boss");
+            bossComponent.TakeHit(PlayerInfo.Instance.damage);
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -62,5 +73,27 @@ public class Shield2D : MonoBehaviour
             bossComponent.TakeHit(PlayerInfo.Instance.damage);
         }
     }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (Time.time < lastHit)
+        {
+            return;
+        }
+
+        lastHit = Time.time + 1.0f;
+
+        if (col.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+        {
+            enemyComponent.TakeDamage(PlayerInfo.Instance.damage);
+        }
+        if (col.gameObject.TryGetComponent<BossHealth>(out BossHealth bossComponent))
+        {
+            Debug.Log("hurting boss");
+            bossComponent.TakeHit(PlayerInfo.Instance.damage);
+        }
+    }
+
+
 
 }
