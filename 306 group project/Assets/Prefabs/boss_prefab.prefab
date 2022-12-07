@@ -147,8 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e314c4e613ba11a4da491ff234ee7e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  object1: {fileID: 5691447396174537441}
-  object2: {fileID: 3355246197892199275, guid: feeff9060076d90459b4a5530fe6c598, type: 3}
 --- !u!61 &5691447396174537432
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -189,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hitpoints: 0
   reward: {fileID: 6125931747696012452, guid: 9249cbf6dd476174bbec699ad6e8cf69, type: 3}
-  MaxHitPoints: 1
+  MaxHitPoints: 100
 --- !u!1 &5691447396650553922
 GameObject:
   m_ObjectHideFlags: 0
