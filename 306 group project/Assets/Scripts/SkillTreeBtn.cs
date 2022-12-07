@@ -71,7 +71,7 @@ public class SkillTreeBtn : MonoBehaviour
                 PlayerPrefs.Save();
                 break;
             case "skill06_ShieldRange10":
-                PlayerInfo.Instance.shieldRange += PlayerInfo.Instance.shieldRange + 0.1f;
+                PlayerInfo.Instance.shieldRange += PlayerInfo.Instance.shieldRange * 0.1f;
                 PlayerInfo.Instance.skillNum -= this.skillUpNeed;
                 GetComponent<Button>().interactable = false;
 
