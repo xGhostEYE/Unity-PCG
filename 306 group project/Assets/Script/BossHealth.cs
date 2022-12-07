@@ -8,17 +8,14 @@ public class BossHealth : MonoBehaviour
     [SerializeField] GameObject reward;
 
     public float MaxHitPoints = 100;
-    //public healthBarBehaviour HealthBar;
 
     private void Start()
     {
-        Hitpoints = MaxHitPoints;
-        //HealthBar.SetHealth(Hitpoints, MaxHitPoints);
+        Hitpoints = PlayerInfo.Instance.hp* Random.Range(0.7f,1.4f);
     }
     public void TakeHit(float damage)
     {
         Hitpoints -= damage;
-        //HealthBar.SetHealth(Hitpoints, MaxHitPoints);
         if(Hitpoints <= 0)
         {
             GetComponent<Animator>().Play("Die");

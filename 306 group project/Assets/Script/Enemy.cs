@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = maxhealth;
+        health = PlayerInfo.Instance.damage* Random.Range(1.0f, 4.0f);
     }
 
     // Update is called once per frame
