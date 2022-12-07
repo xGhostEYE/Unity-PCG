@@ -112,7 +112,7 @@ public class Grid_Manager : MonoBehaviour
             }
         }
         // place platforms 
-        for (int y = 7; y < grid_height - 10; y+= UnityEngine.Random.Range(6, 9))
+        for (int y = 7; y < grid_height - 10; y+= UnityEngine.Random.Range(8, 10))
         {
 
             int random_chance_spawn = UnityEngine.Random.Range(1, 3);
@@ -195,7 +195,7 @@ public class Grid_Manager : MonoBehaviour
         if(where_to_spawn == 1){
             // spawn floor on left side
             int x;
-            for (x = 3; x < (grid_width/2); x+=4){
+            for (x = 3; x < (grid_width/2)-4; x+=4){
                 Instantiate(cliff_prefab, new Vector3(x, y-3), Quaternion.identity);
                 generate_assets(x,y-2,false,true,true,true,true
                 ,true,true);
@@ -209,7 +209,7 @@ public class Grid_Manager : MonoBehaviour
         if(where_to_spawn == 2){
             // spawn floor on right side
             int x;
-            for (x = grid_width/2; x < grid_width; x+=4){
+            for (x = (grid_width/2)+4; x < grid_width; x+=4){
                 Instantiate(cliff_prefab, new Vector3(x, y-3), Quaternion.identity);
                 generate_assets(x,y-2,false,true,true,true,true
                 ,true,true);
