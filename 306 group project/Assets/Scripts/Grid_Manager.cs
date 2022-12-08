@@ -236,7 +236,7 @@ public class Grid_Manager : MonoBehaviour
             // spawn portal
             var portal = Instantiate(PortalIn, new Vector3(grid_width-3, y+2), Quaternion.identity);
             portal.tag = "portal_start_2";
-            var portal_target = Instantiate(portal_target_prefab, new Vector3(grid_width-7, y+2), Quaternion.identity);
+            var portal_target = Instantiate(portal_target_prefab, new Vector3(grid_width-8, y+2), Quaternion.identity);
             portal_target.tag = "portal_target_2";
         }
     }
@@ -414,7 +414,7 @@ public class Grid_Manager : MonoBehaviour
                     {
                         var portal = Instantiate(PortalOut, new Vector3(x + number_rooms[i] + 2, y + number_rooms[i] + 3), Quaternion.identity);
                         portal.tag = "portal_end_"+i.ToString();
-                        var portal_target = Instantiate(portal_target_prefab, new Vector3(x + number_rooms[i] + 5, y + number_rooms[i] + 3), Quaternion.identity);
+                        var portal_target = Instantiate(portal_target_prefab, new Vector3(x + number_rooms[i] + 6, y + number_rooms[i] + 3), Quaternion.identity);
                         portal_target.tag = "portal_target_"+(i+3).ToString();
                         Instantiate(enemy_walking, new Vector3(grid_width + number_rooms[i]+6, y + number_rooms[i] + 2), Quaternion.identity);
                         if(asset == slime_prefab){

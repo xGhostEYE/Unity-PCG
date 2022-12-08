@@ -61,7 +61,7 @@ public class SlimeDetection : MonoBehaviour
             if (slimeIndex < slimeSentences.Length - 1) {
                 slimeIndex++;
                 slimeText.text = string.Empty;
-                StartCoroutine(slimeDialouge);
+                StartCoroutine(slimeDialouge());
             }
            else {
                 // melt away and say bye

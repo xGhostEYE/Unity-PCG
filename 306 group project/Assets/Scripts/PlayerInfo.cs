@@ -92,7 +92,6 @@ public class PlayerInfo : MonoBehaviour
             }
         }
 
-
     }
 
     public void display()
