@@ -75,21 +75,21 @@ public class PlayerControl : MonoBehaviour
         }
         if (collision.gameObject.tag == "Enemy" && PlayerInfo.Instance.hp > 0)
         {
-            PlayerInfo.Instance.hp -= 20;
+            PlayerInfo.Instance.hp -= (20 + PlayerInfo.Instance.LevelCounter*5);
         }
         if (collision.gameObject.tag == "EnemyBullet" && PlayerInfo.Instance.hp > 0)
         {
-            PlayerInfo.Instance.hp -= 5;
+            PlayerInfo.Instance.hp -= (5 + PlayerInfo.Instance.LevelCounter * 2);
         }
 
         if (collision.gameObject.tag == "BossMelee" && PlayerInfo.Instance.hp > 0)
         {
-            PlayerInfo.Instance.hp -= 20;
+            PlayerInfo.Instance.hp -= (30 + PlayerInfo.Instance.LevelCounter * 5);
         }
 
         if (collision.gameObject.tag == "BossRange" && PlayerInfo.Instance.hp > 0)
         {
-            PlayerInfo.Instance.hp -= 10;
+            PlayerInfo.Instance.hp -= (10 + PlayerInfo.Instance.LevelCounter * 5);
         }
 
         if (collision.gameObject.tag == "Exit")
