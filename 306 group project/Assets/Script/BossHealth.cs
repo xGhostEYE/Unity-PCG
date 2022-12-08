@@ -11,7 +11,7 @@ public class BossHealth : MonoBehaviour
 
     private void Start()
     {
-        Hitpoints = PlayerInfo.Instance.hp* Random.Range(0.7f,1.4f);
+        Hitpoints = PlayerInfo.Instance.hp* Random.Range(0.7f,1.4f) + PlayerInfo.Instance.LevelCounter*Random.Range(1.0f, 30.0f);
     }
     public void TakeHit(float damage)
     {
