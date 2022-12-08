@@ -13,7 +13,7 @@ public class Monster : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		fireRate = 1f;
+		fireRate = Mathf.Max(PlayerInfo.Instance.LevelCounter * 2.0f, 2.0f);
 		nextFire = Time.time;
 	}
 

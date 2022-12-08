@@ -9,12 +9,24 @@ public class BossHealth : MonoBehaviour
 
     public float MaxHitPoints = 100;
 
+    private bool battle;
+
     private void Start()
     {
-        Hitpoints = PlayerInfo.Instance.hp* Random.Range(0.7f,1.4f) + PlayerInfo.Instance.LevelCounter*Random.Range(1.0f, 30.0f);
+        MaxHitPoints = Mathf.Max(PlayerInfo.Instance.hp* Random.Range(0.7f,1.4f) + PlayerInfo.Instance.LevelCounter*Random.Range(1.0f, 30.0f), 100.0f); // at least 100.0f
+        Hitpoints = MaxHitPoints;
+        battle = false;
     }
     public void TakeHit(float damage)
     {
+
+        if (!battle) // If at the start of battle, update health to reflect the current situation of the player
+        {
+            MaxHitPoints = Mathf.Max(PlayerInfo.Instance.hp * Random.Range(0.7f, 1.4f) + PlayerInfo.Instance.LevelCounter * Random.Range(1.0f, 30.0f), 100.0f); // current state of player
+            Hitpoints = MaxHitPoints;
+            battle = true;
+        }
+
         Hitpoints -= damage;
         if(Hitpoints <= 0)
         {

@@ -9,7 +9,7 @@ public class Acid : MonoBehaviour
 
     void Start()
     {
-        riseSpeed = Mathf.Min(5.0f, PlayerInfo.Instance.LevelCounter/2.0f);
+        riseSpeed = Mathf.Max(Mathf.Min(5.0f, PlayerInfo.Instance.LevelCounter/2.0f), 0.5f); // at least 0.5 at most 5.0f
     }
 
     // Update is called once per frame
