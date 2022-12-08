@@ -28,20 +28,20 @@ public class SlimeDetection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //enemiesFound = GameObject.FindGameObjectsWithTag("Enemy");
-        //foreach (GameObject enemy in enemiesFound)
-        //{
-        //    float dist = Vector2.Distance(this.gameObject.transform.position, enemy.transform.position);
-        //    if (dist < oldDistance)
-        //    {
-        //        nearestEnemy = enemy;
-        //        oldDistance = dist;
-        //    }
-        //}
+        enemiesFound = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemiesFound)
+        {
+            float dist = Vector2.Distance(this.gameObject.transform.position, enemy.transform.position);
+            if (dist < oldDistance)
+            {
+                nearestEnemy = enemy;
+                oldDistance = dist;
+            }
+        }
 
         // the following is for testing only, take it out later
-        StartCoroutine(slimeDialouge());
-        rewardSound.Play();
+        //StartCoroutine(slimeDialouge());
+        //rewardSound.Play();
 
     }
 
@@ -49,42 +49,28 @@ public class SlimeDetection : MonoBehaviour
     void Update()
     {
         // implement a bool to check if enemyDeathHanlder has already been called, if it has, don't call it again
-        //if (nearestEnemy == null & check) {
-        //    check = false;
-        //    enemyDeathHandler();
-        //}
+        if (nearestEnemy == null & check) {
+            check = false;
+            enemyDeathHandler();
+        }
 
         
 
         // if user presses "enter", progress through dialogue, you can only press enter after enemyHandler has been called
-        //if (Input.GetKeyDown(KeyCode.Return) & check == false) {
-        //    if (slimeIndex < slimeSentences.Length - 1) {
-        //        slimeIndex++;
-        //        slimeText.text = string.Empty;
-        //        StartCoroutine(slimeDialouge);
-        //    }
-        //   else {
-        //        // melt away and say bye
-        //        // destroy object
-        //        slimeSpeechAnimator.SetTrigger("Close");
-        //        Destroy(this.gameObject, 3.0f);
-        //    }
-        //}
-
-
-        // the following block is for testing only, don't use it in the final product
-        if (Input.GetKeyDown(KeyCode.Return)) {
+        if (Input.GetKeyDown(KeyCode.Return) & check == false) {
             if (slimeIndex < slimeSentences.Length - 1) {
                 slimeIndex++;
                 slimeText.text = string.Empty;
-                StartCoroutine(slimeDialouge());
+                StartCoroutine(slimeDialouge);
             }
-            else {
+           else {
                 // melt away and say bye
+                // destroy object
                 slimeSpeechAnimator.SetTrigger("Close");
                 Destroy(this.gameObject, 2.0f);
             }
         }
+
     }
 
     void enemyDeathHandler() {
