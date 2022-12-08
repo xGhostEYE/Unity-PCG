@@ -46,7 +46,12 @@ public class SkillTreeBtn : MonoBehaviour
                 GetComponent<Button>().interactable = false;
                 break;
             case "skill02_JumpHight10":
+                int val = 30;
                 PlayerInfo.Instance.jumpSpeed += PlayerInfo.Instance.jumpSpeed * 0.1f;
+                if(PlayerInfo.Instance.jumpSpeed >= val + 6){
+                    Grid_Manager.platform_spawning_interval +=1;
+                    val += 6;
+                }
                 PlayerInfo.Instance.skillNum -= this.skillUpNeed;
                 GetComponent<Button>().interactable = false;
                 break;

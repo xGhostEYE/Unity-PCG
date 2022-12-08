@@ -7,7 +7,7 @@ using System.Linq;
 public class Grid_Manager : MonoBehaviour
 {
     private int grid_width, grid_height;
-    public int platform_spawning_interval;
+    public static int platform_spawning_interval;
     [SerializeField] private Tile background_prefab, wall_prefab, floor_prefab, room_background_prefab;
 
     [SerializeField] private GameObject portal_target_prefab,enemy_flying, enemy_walking,
@@ -446,9 +446,4 @@ public class Grid_Manager : MonoBehaviour
         return rooms_list;
     }
 
-
-    // public Tile GetTileAtPosition(Vector2 pos) {
-    //     if (_tiles.TryGetValue(pos, out var tile)) return tile;
-    //     return null;
-    // }
 }
